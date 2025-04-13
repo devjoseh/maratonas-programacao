@@ -174,12 +174,12 @@ function MobileSidebar() {
                 </nav>
             </div>
             <div className="px-4 py-4 border-t">
-                <Button variant="destructive" className="w-full flex items-center justify-center" asChild>
-                    <Link href="/logout">
+                <form action={signOutAction} className="w-full">
+                    <Button variant="destructive" className="w-full flex items-center justify-center">
                         <LogOutIcon className="mr-2 h-4 w-4" />
-                        <span>Sair</span>
-                    </Link>
-                </Button>
+                        Sair
+                    </Button>
+                </form>
             </div>
         </div>
     );
