@@ -1,0 +1,34 @@
+import { ThemeProvider } from "@/components/ui/theme-provider";
+import { Inter } from "next/font/google";
+
+import type { Metadata } from "next";
+import type React from "react";
+
+import "./globals.css";
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+    title: "Maratona de Programação | ETEC & FATEC",
+    description: "Maratonas de programação da ETEC Abdias do Nascimento e FATEC",
+};
+
+export default function RootLayout({
+    children,
+}: Readonly<{
+    children: React.ReactNode;
+}>) {
+    return (
+        <html lang="pt-BR" suppressHydrationWarning>
+            <body className={inter.className}>
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="light"
+                    enableSystem
+                    disableTransitionOnChange
+                >
+                    {children}
+                </ThemeProvider>
+            </body>
+        </html>
+    );
+}
