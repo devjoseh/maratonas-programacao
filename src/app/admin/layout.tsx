@@ -8,6 +8,7 @@ import {
     HomeIcon,
     LogOutIcon,
     MenuIcon,
+    FileTextIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -24,7 +25,8 @@ import { isAuthenticated } from "@/utils/actions/auth";
 
 export const metadata: Metadata = {
     title: "Admin - Maratona de Programação",
-    description: "Painel de administração para gerenciar maratonas de programação",
+    description:
+        "Painel de administração para gerenciar maratonas de programação",
 };
 
 export default async function AdminLayout({
@@ -32,7 +34,7 @@ export default async function AdminLayout({
 }: {
     children: React.ReactNode;
 }) {
-    const user = await isAuthenticated()
+    const user = await isAuthenticated();
 
     return (
         <div className="flex min-h-screen bg-gray-100">
@@ -88,6 +90,13 @@ export default async function AdminLayout({
                             >
                                 <UsersIcon className="mr-3 h-5 w-5 text-gray-500" />
                                 Equipes
+                            </Link>
+                            <Link
+                                href="/admin/documentos"
+                                className="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-900 hover:bg-gray-100"
+                            >
+                                <FileTextIcon className="mr-3 h-5 w-5 text-gray-500" />
+                                Documentos
                             </Link>
                         </nav>
                     </div>
@@ -181,6 +190,13 @@ function MobileSidebar() {
                     >
                         <UsersIcon className="mr-3 h-5 w-5 text-gray-500" />
                         Equipes
+                    </Link>
+                    <Link
+                        href="/admin/documentos"
+                        className="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-900 hover:bg-gray-100"
+                    >
+                        <FileTextIcon className="mr-3 h-5 w-5 text-gray-500" />
+                        Documentos
                     </Link>
                 </nav>
             </div>

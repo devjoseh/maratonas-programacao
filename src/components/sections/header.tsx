@@ -89,10 +89,10 @@ export function Header() {
                                 </DropdownMenuItem>
                                 <DropdownMenuItem asChild>
                                     <Link
-                                        href="/sobre/regras"
+                                        href="/sobre/documentos"
                                         className="w-full"
                                     >
-                                        Regras
+                                        Documentos
                                     </Link>
                                 </DropdownMenuItem>
                                 <DropdownMenuItem asChild>
@@ -191,11 +191,11 @@ export function Header() {
                                     Objetivos
                                 </Link>
                                 <Link
-                                    href="/sobre/regras"
+                                    href="/sobre/documentos"
                                     className="block py-1 text-sm text-gray-600 hover:text-red-600"
                                     onClick={closeMenu}
                                 >
-                                    Regras
+                                    Documentos
                                 </Link>
                                 <Link
                                     href="/sobre/como-participar"

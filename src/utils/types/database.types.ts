@@ -9,6 +9,80 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      categorias_documentos: {
+        Row: {
+          ativo: boolean | null
+          created_at: string | null
+          descricao: string | null
+          id: string
+          nome: string
+          slug: string
+          updated_at: string | null
+        }
+        Insert: {
+          ativo?: boolean | null
+          created_at?: string | null
+          descricao?: string | null
+          id?: string
+          nome: string
+          slug: string
+          updated_at?: string | null
+        }
+        Update: {
+          ativo?: boolean | null
+          created_at?: string | null
+          descricao?: string | null
+          id?: string
+          nome?: string
+          slug?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      documentos: {
+        Row: {
+          arquivo_url: string
+          categoria_id: string
+          created_at: string | null
+          data_upload: string | null
+          descricao: string | null
+          id: string
+          instituicao: string
+          titulo: string
+          updated_at: string | null
+        }
+        Insert: {
+          arquivo_url: string
+          categoria_id: string
+          created_at?: string | null
+          data_upload?: string | null
+          descricao?: string | null
+          id?: string
+          instituicao: string
+          titulo: string
+          updated_at?: string | null
+        }
+        Update: {
+          arquivo_url?: string
+          categoria_id?: string
+          created_at?: string | null
+          data_upload?: string | null
+          descricao?: string | null
+          id?: string
+          instituicao?: string
+          titulo?: string
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "documentos_categoria_id_fkey"
+            columns: ["categoria_id"]
+            isOneToOne: false
+            referencedRelation: "categorias_documentos"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       equipes: {
         Row: {
           created_at: string | null
