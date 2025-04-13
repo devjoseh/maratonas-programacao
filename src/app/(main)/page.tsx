@@ -27,7 +27,7 @@ export default async function Home() {
                     <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-fuchsia-400 opacity-20 blur-[100px]"></div>
                 </div>
 
-                <div className="container relative z-10 py-24 md:py-32">
+                <div className="mx-auto px-4 md:px-8 lg:px-16 relative z-10 py-24 md:py-32">
                     <div className="max-w-3xl mx-auto text-center">
                         <h1 className="text-4xl md:text-6xl font-bold mb-6">
                             Maratona de Programação
@@ -42,7 +42,7 @@ export default async function Home() {
 
             {/* Upcoming Events Section */}
             <section className="py-16 bg-white">
-                <div className="container mx-auto px-4">
+                <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <h2 className="text-3xl font-bold text-center mb-12">
                         Próximos Eventos
                     </h2>

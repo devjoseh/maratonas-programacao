@@ -120,7 +120,7 @@ export default async function EventoAnteriorPage({
                 <div className="absolute inset-0 opacity-10">
                     <div className="code-animation"></div>
                 </div>
-                <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
+                <div className="mx-auto px-4 md:px-8 lg:px-16 py-12 md:py-16 relative z-10">
                     <div className="max-w-4xl mx-auto text-center">
                         <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
                             {evento.titulo}
@@ -135,7 +135,7 @@ export default async function EventoAnteriorPage({
             {/* Description Section */}
             {evento.descricao && (
                 <section className="py-12 bg-white">
-                    <div className="container mx-auto px-4">
+                    <div className="mx-auto px-4 md:px-8 lg:px-16">
                         <div className="max-w-6xl mx-auto">
                             <div
                                 className="prose max-w-none text-justify"
@@ -148,7 +148,7 @@ export default async function EventoAnteriorPage({
 
             {/* Key Information Section */}
             <section className="py-12 bg-gray-50">
-                <div className="container mx-auto px-4">
+                <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <div className="max-w-4xl mx-auto">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             <div className="flex flex-col items-center text-center p-6 bg-white rounded-lg border border-gray-200">
@@ -193,7 +193,7 @@ export default async function EventoAnteriorPage({
 
             {/* Winners Section */}
             <section className="py-16 bg-white">
-                <div className="container mx-auto px-4">
+                <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <div className="max-w-4xl mx-auto">
                         <h2 className="text-3xl font-bold mb-12 text-center">
                             Pódio da Maratona
@@ -379,7 +379,7 @@ export default async function EventoAnteriorPage({
 
             {/* Teams Section */}
             <section className="py-16 bg-gray-50">
-                <div className="container mx-auto px-4">
+                <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <div className="max-w-4xl mx-auto">
                         <h2 className="text-3xl font-bold mb-12 text-center">
                             Equipes Participantes
@@ -459,7 +459,7 @@ export default async function EventoAnteriorPage({
 
             {/* Stats Section */}
             <section className="py-16 bg-white">
-                <div className="container mx-auto px-4">
+                <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <div className="max-w-4xl mx-auto">
                         <h2 className="text-3xl font-bold mb-12 text-center">
                             Em Números
@@ -512,7 +512,7 @@ export default async function EventoAnteriorPage({
 
             {/* Call to Action */}
             <section className="py-12 bg-gray-900 text-white">
-                <div className="container mx-auto px-4">
+                <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <div className="max-w-3xl mx-auto text-center">
                         <h2 className="text-2xl font-bold mb-4">
                             Prepare-se para a próxima edição!

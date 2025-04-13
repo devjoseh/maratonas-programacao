@@ -38,7 +38,7 @@ export default async function ETECEventPage() {
             </section>
 
             <section className="py-16 bg-white">
-                <div className="container mx-auto px-4">
+                <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <h2 className="text-3xl font-bold text-center mb-12">
                         Próximos Eventos
                     </h2>

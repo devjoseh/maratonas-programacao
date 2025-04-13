@@ -6,7 +6,7 @@ export default function InscricaoSucessoPage() {
     return (
         <div className="flex flex-col w-full">
             <section className="py-16 bg-white">
-                <div className="container mx-auto px-4">
+                <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <div className="max-w-3xl mx-auto text-center">
                         <div className="flex justify-center mb-6">
                             <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center">

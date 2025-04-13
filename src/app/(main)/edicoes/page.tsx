@@ -6,8 +6,10 @@ import Link from "next/link";
 export default async function PreviousEditions() {
     const eventos = await getEvents();
 
-    const etecEditions = eventos?.filter((e) => e.instituicao === "ETEC Abdias") || [];
-    const fatecEditions = eventos?.filter((e) => e.instituicao === "FATEC") || [];
+    const etecEditions =
+        eventos?.filter((e) => e.instituicao === "ETEC Abdias") || [];
+    const fatecEditions =
+        eventos?.filter((e) => e.instituicao === "FATEC") || [];
 
     return (
         <div className="flex flex-col w-full">
@@ -31,7 +33,7 @@ export default async function PreviousEditions() {
 
             {/* ETEC Previous Editions */}
             <section className="py-16 bg-white">
-                <div className="container mx-auto px-4">
+                <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <h2 className="text-3xl font-bold text-center mb-12">
                         ETEC Abdias do Nascimento
                     </h2>
@@ -77,7 +79,7 @@ export default async function PreviousEditions() {
 
             {/* FATEC Previous Editions */}
             <section className="py-16 bg-gray-50">
-                <div className="container mx-auto px-4">
+                <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <h2 className="text-3xl font-bold text-center mb-12">
                         FATEC
                     </h2>

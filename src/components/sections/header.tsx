@@ -159,7 +159,7 @@ export function Header() {
             {/* Mobile Navigation */}
             {isMenuOpen && (
                 <div className="md:hidden border-t border-gray-200">
-                    <div className="container mx-auto px-4 py-4 space-y-4">
+                    <div className="mx-auto px-4 md:px-8 lg:px-16 py-4 space-y-4">
                         <Link
                             href="/"
                             className={cn(

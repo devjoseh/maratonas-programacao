@@ -2,11 +2,13 @@ import { InscricaoForm } from "./components/inscricao-form";
 import { notFound } from "next/navigation";
 import { getEventById } from "./actions";
 
-export default async function InscricaoPage({ params }: {
-    params: Promise<{ id: string }>
+export default async function InscricaoPage({
+    params,
+}: {
+    params: Promise<{ id: string }>;
 }) {
-    const { id } = await params
-    const evento = await getEventById(id)
+    const { id } = await params;
+    const evento = await getEventById(id);
 
     if (!evento) {
         notFound();
@@ -24,7 +26,7 @@ export default async function InscricaoPage({ params }: {
                 <div className="absolute inset-0 opacity-10">
                     <div className="code-animation"></div>
                 </div>
-                <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
+                <div className="mx-auto px-4 md:px-8 lg:px-16 py-16 md:py-24 relative z-10">
                     <div className="max-w-4xl mx-auto text-center">
                         <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
                             Inscrição
@@ -49,7 +51,7 @@ export default async function InscricaoPage({ params }: {
 
             {/* Form Section */}
             <section className="py-16 bg-white">
-                <div className="container mx-auto px-4">
+                <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <div className="max-w-3xl mx-auto">
                         {inscricoesAbertas ? (
                             <>
