@@ -1,0 +1,1 @@
+# Algum dia a documentação disso aqui sai :)
