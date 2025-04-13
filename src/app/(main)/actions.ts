@@ -23,3 +23,18 @@ export async function getEvents() {
 
     return { eventosETEC, eventosFATEC };
 }
+
+export async function getEventsByName(school:"ETEC Abdias"|"FATEC") {
+    const supabase = await createClient();
+    
+    const { data, error } = await supabase
+    .from("eventos")
+    .select("*")
+    .eq("instituicao", school)
+    .in("status", ["planejado", "em_andamento"])
+    .order("data_inicio", { ascending: true })
+    .limit(1);
+
+    if(!data || error) return null;
+    return data;
+}

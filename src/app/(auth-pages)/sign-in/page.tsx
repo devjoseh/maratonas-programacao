@@ -7,7 +7,7 @@ import Link from "next/link";
 export default async function Login(props: { searchParams: Promise<Message> }) {
     const searchParams = await props.searchParams;
     return (
-        <div className="min-h-screen bg-black-700 flex items-center justify-center p-4 relative">
+        <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4 relative">
 
             <div className="w-full max-w-md z-10">
                 <Card className="border-1 shadow-xl bg-white backdrop-blur-sm pt-5 pb-5">

@@ -157,7 +157,7 @@ export default function PreparationPage() {
                                 <ul className="list-disc list-inside text-gray-700 space-y-2 mb-6">
                                     <li>
                                         <Link
-                                            href="/edicoes-anteriores"
+                                            href="/edicoes"
                                             className="text-red-600 hover:underline"
                                         >
                                             Edições anteriores da ETEC e FATEC
@@ -308,13 +308,8 @@ export default function PreparationPage() {
                             <Button asChild variant="destructive">
                                 <Link href="/">Ver próximos eventos</Link>
                             </Button>
-                            <Button
-                                asChild
-                                variant="secondary"
-                            >
-                                <Link href="/edicoes-anteriores">
-                                    Edições anteriores
-                                </Link>
+                            <Button asChild variant="secondary">
+                                <Link href="/edicoes">Edições anteriores</Link>
                             </Button>
                         </div>
                     </div>

@@ -208,10 +208,10 @@ export function Header() {
                         </div>
 
                         <Link
-                            href="/edicoes-anteriores"
+                            href="/edicoes"
                             className={cn(
                                 "block py-2 text-base font-medium transition-colors hover:text-red-600",
-                                isActive("/edicoes-anteriores")
+                                isActive("/edicoes")
                                     ? "text-red-600"
                                     : "text-gray-700"
                             )}

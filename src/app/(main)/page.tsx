@@ -1,11 +1,9 @@
+import { CodeIcon, BookOpenIcon, ExternalLink } from "lucide-react";
 import { CountdownTimer } from "@/components/ui/countdown-timer";
 import { Button } from "@/components/index";
-import { CodeIcon, BookOpenIcon, ExternalLink } from "lucide-react";
-import { motion } from "framer-motion";
-
-import Link from "next/link";
-import Image from "next/image";
 import { getEvents } from "./actions";
+import Image from "next/image";
+import Link from "next/link";
 
 export default async function Home() {
     const { eventosETEC, eventosFATEC } = await getEvents();
@@ -50,18 +48,26 @@ export default async function Home() {
                     </h2>
 
                     {upcomingEvents.length > 0 ? (
-                        <div className={`grid grid-cols-1 ${upcomingEvents.length > 1 ? 'md:grid-cols-2' : 'md:grid-cols-1'} gap-8`}>
+                        <div
+                            className={`grid grid-cols-1 ${
+                                upcomingEvents.length > 1
+                                    ? "md:grid-cols-2"
+                                    : "md:grid-cols-1"
+                            } gap-8`}
+                        >
                             {upcomingEvents.map((event) => (
                                 <div
                                     key={event.id}
                                     className={`bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200 transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl ${
-                                        upcomingEvents.length === 1 ? 'md:max-w-[50%] md:mx-auto' : ''
+                                        upcomingEvents.length === 1
+                                            ? "md:max-w-[50%] md:mx-auto"
+                                            : ""
                                     }`}
                                 >
                                     <div
                                         className={`h-2 ${
-                                            event.instituicao === "ETEC Abdias" 
-                                                ? "bg-red-600" 
+                                            event.instituicao === "ETEC Abdias"
+                                                ? "bg-red-600"
                                                 : "bg-red-700"
                                         }`}
                                     ></div>
@@ -87,15 +93,35 @@ export default async function Home() {
                                             />
                                         </div>
                                         {event.inscricao_externa ? (
-                                        <Button asChild className="w-full">
-                                            <a href={event.url_inscricao_externa || "#"} target="_blank" rel="noopener noreferrer">
-                                            Inscrever-se <ExternalLink className="ml-2 h-4 w-4" />
-                                            </a>
-                                        </Button>
+                                            <Button
+                                                asChild
+                                                className="w-full"
+                                                variant="destructive"
+                                            >
+                                                <a
+                                                    href={
+                                                        event.url_inscricao_externa ||
+                                                        "#"
+                                                    }
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    Inscrever-se{" "}
+                                                    <ExternalLink className="ml-2 h-4 w-4" />
+                                                </a>
+                                            </Button>
                                         ) : (
-                                        <Button asChild className="w-full">
-                                            <Link href={`/inscricao/${event.id}`}>Inscrever-se</Link>
-                                        </Button>
+                                            <Button
+                                                asChild
+                                                className="w-full"
+                                                variant="destructive"
+                                            >
+                                                <Link
+                                                    href={`/inscricao/${event.id}`}
+                                                >
+                                                    Inscrever-se
+                                                </Link>
+                                            </Button>
                                         )}
                                     </div>
                                 </div>
@@ -111,7 +137,7 @@ export default async function Home() {
                                 informações sobre os próximos eventos.
                             </p>
                             <Button asChild variant="outline">
-                                <Link href="/edicoes-anteriores">
+                                <Link href="/edicoes">
                                     Ver edições anteriores
                                 </Link>
                             </Button>
