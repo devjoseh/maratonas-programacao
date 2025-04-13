@@ -1,6 +1,12 @@
 "use client";
 
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Participante } from "@/utils/types/types";
 import { PlusIcon, TrashIcon } from "lucide-react";
@@ -23,6 +29,9 @@ export function InscricaoForm({ evento }: InscricaoFormProps) {
     const [participantes, setParticipantes] = useState<Participante[]>([
         { nome: "", serie: "", funcao: "aluno", periodo: "Manhã" },
     ]);
+
+    // Verificar se o evento é da ETEC Abdias
+    const isEtecAbdias = evento.instituicao === "ETEC Abdias";
 
     const handleAddParticipante = () => {
         if (participantes.length < 4) {
@@ -55,6 +64,31 @@ export function InscricaoForm({ evento }: InscricaoFormProps) {
             [field]: value,
         };
         setParticipantes(newParticipantes);
+    };
+
+    // Função para atualizar a série formatada (para ETEC Abdias)
+    const handleSerieChange = (index: number, serie: string, turma: string) => {
+        const newParticipantes = [...participantes];
+        newParticipantes[index] = {
+            ...newParticipantes[index],
+            serie: `${serie} ${turma}`,
+        };
+        setParticipantes(newParticipantes);
+    };
+
+    // Extrair série e turma de um participante (para ETEC Abdias)
+    const extractSerieAndTurma = (participante: Participante) => {
+        if (!participante.serie) return { serie: "", turma: "" };
+
+        const parts = participante.serie.split(" ");
+        if (parts.length >= 2) {
+            return {
+                serie: parts[0],
+                turma: parts[1],
+            };
+        }
+
+        return { serie: participante.serie, turma: "" };
     };
 
     const handleSubmit = async (formData: FormData) => {
@@ -112,7 +146,7 @@ export function InscricaoForm({ evento }: InscricaoFormProps) {
                 </div>
 
                 <div>
-                    <Label htmlFor="email">Email para Contato</Label>
+                    <Label htmlFor="email">Email do Líder</Label>
                     <Input
                         id="email"
                         name="email"
@@ -129,97 +163,172 @@ export function InscricaoForm({ evento }: InscricaoFormProps) {
                     <CardTitle>Participantes</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                    {participantes.map((participante, index) => (
-                        <div
-                            key={index}
-                            className="grid grid-cols-1 md:grid-cols-4 gap-4 p-4 border rounded-md"
-                        >
-                            <div className="md:col-span-2">
-                                <Label>Nome</Label>
-                                <Input
-                                    value={participante.nome}
-                                    onChange={(e) =>
-                                        handleParticipanteChange(
-                                            index,
-                                            "nome",
-                                            e.target.value
-                                        )
-                                    }
-                                    disabled={isSubmitting}
-                                    placeholder="Nome completo"
-                                    required
-                                />
-                            </div>
+                    {participantes.map((participante, index) => {
+                        // Extrair série e turma para ETEC Abdias
+                        const { serie, turma } = isEtecAbdias
+                            ? extractSerieAndTurma(participante)
+                            : { serie: "", turma: "" };
 
-                            <div>
-                                <Label>Período</Label>
-                                <Select
-                                    value={participante.periodo}
-                                    onValueChange={(value) =>
-                                        handleParticipanteChange(
-                                            index,
-                                            "periodo",
-                                            value
-                                        )
-                                    }
-                                    disabled={isSubmitting}
-                                >
-                                    <SelectTrigger>
-                                        <SelectValue placeholder="Período" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="Manhã">
-                                            Manhã
-                                        </SelectItem>
-                                        <SelectItem value="Tarde">
-                                            Tarde
-                                        </SelectItem>
-                                        <SelectItem value="Noite">
-                                            Noite
-                                        </SelectItem>
-                                        <SelectItem value="Integral">
-                                            Integral
-                                        </SelectItem>
-                                    </SelectContent>
-                                </Select>
-                            </div>
+                        return (
+                            <div
+                                key={index}
+                                className="grid grid-cols-1 md:grid-cols-4 gap-4 p-4 border rounded-md"
+                            >
+                                <div className="md:col-span-2">
+                                    <Label>Nome</Label>
+                                    <Input
+                                        value={participante.nome}
+                                        onChange={(e) =>
+                                            handleParticipanteChange(
+                                                index,
+                                                "nome",
+                                                e.target.value
+                                            )
+                                        }
+                                        disabled={isSubmitting}
+                                        placeholder="Nome completo"
+                                        required
+                                    />
+                                </div>
 
-                            <div>
-                                <Label>Série/Turma</Label>
-                                <Input
-                                    value={participante.serie}
-                                    onChange={(e) =>
-                                        handleParticipanteChange(
-                                            index,
-                                            "serie",
-                                            e.target.value
-                                        )
-                                    }
-                                    disabled={isSubmitting}
-                                    placeholder="Ex: 3º DS"
-                                    required
-                                />
-                            </div>
+                                <div>
+                                    <Label>Período</Label>
+                                    <Select
+                                        value={participante.periodo}
+                                        onValueChange={(value) =>
+                                            handleParticipanteChange(
+                                                index,
+                                                "periodo",
+                                                value
+                                            )
+                                        }
+                                        disabled={isSubmitting}
+                                    >
+                                        <SelectTrigger>
+                                            <SelectValue placeholder="Período" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="Manhã">
+                                                Manhã
+                                            </SelectItem>
+                                            <SelectItem value="Tarde">
+                                                Tarde
+                                            </SelectItem>
+                                            <SelectItem value="Noite">
+                                                Noite
+                                            </SelectItem>
+                                            <SelectItem value="Integral">
+                                                Integral
+                                            </SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
 
-                            <div className="flex items-end">
-                                <Button
-                                    type="button"
-                                    variant="destructive"
-                                    size="icon"
-                                    onClick={() =>
-                                        handleRemoveParticipante(index)
-                                    }
-                                    disabled={
-                                        isSubmitting ||
-                                        participantes.length <= 1
-                                    }
-                                    className="w-8 h-8"
-                                >
-                                    <TrashIcon className="h-4 w-4" />
-                                </Button>
+                                {isEtecAbdias ? (
+                                    // Campos específicos para ETEC Abdias
+                                    <div className="md:col-span-1 grid grid-cols-2 gap-2">
+                                        <div>
+                                            <Label>Série</Label>
+                                            <Select
+                                                value={serie}
+                                                onValueChange={(value) =>
+                                                    handleSerieChange(
+                                                        index,
+                                                        value,
+                                                        turma
+                                                    )
+                                                }
+                                                disabled={isSubmitting}
+                                            >
+                                                <SelectTrigger>
+                                                    <SelectValue placeholder="Série" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    <SelectItem value="1º">
+                                                        1º
+                                                    </SelectItem>
+                                                    <SelectItem value="2º">
+                                                        2º
+                                                    </SelectItem>
+                                                    <SelectItem value="3º">
+                                                        3º
+                                                    </SelectItem>
+                                                </SelectContent>
+                                            </Select>
+                                        </div>
+                                        <div>
+                                            <Label>Turma</Label>
+                                            <Select
+                                                value={turma}
+                                                onValueChange={(value) =>
+                                                    handleSerieChange(
+                                                        index,
+                                                        serie,
+                                                        value
+                                                    )
+                                                }
+                                                disabled={isSubmitting}
+                                            >
+                                                <SelectTrigger>
+                                                    <SelectValue placeholder="Turma" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    <SelectItem value="DS">
+                                                        DS
+                                                    </SelectItem>
+                                                    <SelectItem value="ADM">
+                                                        ADM
+                                                    </SelectItem>
+                                                    <SelectItem value="RH">
+                                                        RH
+                                                    </SelectItem>
+                                                    <SelectItem value="ST">
+                                                        ST
+                                                    </SelectItem>
+                                                </SelectContent>
+                                            </Select>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    // Campo padrão para outras instituições
+                                    <div>
+                                        <Label>Série/Turma</Label>
+                                        <Input
+                                            value={participante.serie}
+                                            onChange={(e) =>
+                                                handleParticipanteChange(
+                                                    index,
+                                                    "serie",
+                                                    e.target.value
+                                                )
+                                            }
+                                            disabled={isSubmitting}
+                                            placeholder="Ex: 3º DS"
+                                            required
+                                        />
+                                    </div>
+                                )}
+
+                                <div className="flex items-end">
+                                    <Button
+                                        type="button"
+                                        variant="destructive"
+                                        size="icon"
+                                        onClick={() =>
+                                            handleRemoveParticipante(index)
+                                        }
+                                        disabled={
+                                            isSubmitting ||
+                                            participantes.length <= 1
+                                        }
+                                        className="w-8 h-8"
+                                    >
+                                        <TrashIcon className="h-4 w-4" />
+                                    </Button>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
 
                     {participantes.length < 4 && (
                         <Button
