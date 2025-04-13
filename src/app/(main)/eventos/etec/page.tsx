@@ -280,7 +280,7 @@ export default async function ETECEventPage() {
                                     InterFatecs e de outras maratonas. Acesse a
                                     seção{" "}
                                     <Link
-                                        href="/como-se-preparar"
+                                        href="/sobre/como-se-preparar"
                                         className="text-red-600 hover:underline"
                                     >
                                         Como se preparar
@@ -334,7 +334,9 @@ export default async function ETECEventPage() {
                             desenvolvimento.
                         </p>
                         <Button asChild variant="destructive">
-                            <Link href="/como-se-preparar">Saiba mais</Link>
+                            <Link href="/sobre/como-se-preparar">
+                                Saiba mais
+                            </Link>
                         </Button>
                     </div>
                 </div>

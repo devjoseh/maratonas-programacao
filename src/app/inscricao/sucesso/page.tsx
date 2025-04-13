@@ -65,7 +65,7 @@ export default function InscricaoSucessoPage() {
                                 </Link>
                             </Button>
                             <Button asChild variant="outline">
-                                <Link href="/como-se-preparar">
+                                <Link href="/sobre/como-se-preparar">
                                     Como se Preparar
                                 </Link>
                             </Button>

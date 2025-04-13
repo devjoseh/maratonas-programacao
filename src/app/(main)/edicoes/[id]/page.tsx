@@ -13,29 +13,32 @@ import { Trophy, Clock, Users, CheckCircle, Award } from "lucide-react";
 import { notFound } from "next/navigation";
 import { getEventbyId, getEventTeams } from "../actions";
 
-export default async function EventoAnteriorPage({ params }: {
-    params: Promise<{ id: string }>
+export default async function EventoAnteriorPage({
+    params,
+}: {
+    params: Promise<{ id: string }>;
 }) {
-    const { id } = await params
+    const { id } = await params;
     const evento = await getEventbyId(id);
-  
+
     if (!evento) {
-      notFound();
+        notFound();
     }
-  
+
     const equipes = await getEventTeams(evento.id);
 
     const totalEquipes = equipes?.length || 0;
-    const totalParticipantes = equipes
-        ?.filter(equipe => equipe.tipo_equipe !== "organizacao")
-        ?.reduce((acc, equipe) => {
-            return (
-                acc +
-                (Array.isArray(equipe.participantes)
-                    ? equipe.participantes.length
-                    : 0)
-            );
-        }, 0) || 0;
+    const totalParticipantes =
+        equipes
+            ?.filter((equipe) => equipe.tipo_equipe !== "organizacao")
+            ?.reduce((acc, equipe) => {
+                return (
+                    acc +
+                    (Array.isArray(equipe.participantes)
+                        ? equipe.participantes.length
+                        : 0)
+                );
+            }, 0) || 0;
 
     const totalAlunos =
         equipes?.reduce((acc, equipe) => {
@@ -74,13 +77,13 @@ export default async function EventoAnteriorPage({ params }: {
         }, 0) || 0;
 
     // Ordenar vencedores por posição
-    const vencedores:any = Array.isArray(evento.vencedores)
+    const vencedores: any = Array.isArray(evento.vencedores)
         ? [...evento.vencedores].sort((a: any, b: any) => a.posicao - b.posicao)
         : [];
 
     // Função para renderizar HTML da descrição
     const renderDescricao = () => {
-        if (!evento.descricao) return { __html: '' };
+        if (!evento.descricao) return { __html: "" };
 
         const html = evento.descricao
             .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
@@ -88,17 +91,26 @@ export default async function EventoAnteriorPage({ params }: {
             .replace(/<u>(.*?)<\/u>/g, "<u>$1</u>")
             .replace(
                 /\[(.*?)\]$$(.*?)$$/g,
-                '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">$1</a>',
+                '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">$1</a>'
             )
-            .replace(/!\[(.*?)\]$$(.*?)$$/g, '<img src="$2" alt="$1" class="max-w-full rounded-md my-4" />')
+            .replace(
+                /!\[(.*?)\]$$(.*?)$$/g,
+                '<img src="$2" alt="$1" class="max-w-full rounded-md my-4" />'
+            )
             .replace(/^- (.*)/gm, "<li>$1</li>")
             .replace(/^(\d+)\. (.*)/gm, "<li>$2</li>")
-            .replace(/<li>(.*)<\/li>/g, '<ul class="list-disc pl-6 my-2"><li>$1</li></ul>')
+            .replace(
+                /<li>(.*)<\/li>/g,
+                '<ul class="list-disc pl-6 my-2"><li>$1</li></ul>'
+            )
             .replace(/<\/ul><ul class="list-disc pl-6 my-2">/g, "")
-            .replace(/<div style="text-align: (.*?)">([\s\S]*?)<\/div>/g, '<div style="text-align: $1">$2</div>')
-            .replace(/\n/g, "<br />")
-    
-        return { __html: html }
+            .replace(
+                /<div style="text-align: (.*?)">([\s\S]*?)<\/div>/g,
+                '<div style="text-align: $1">$2</div>'
+            )
+            .replace(/\n/g, "<br />");
+
+        return { __html: html };
     };
 
     return (
@@ -511,14 +523,11 @@ export default async function EventoAnteriorPage({ params }: {
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
                             <Button asChild variant="destructive">
-                                <Link href="/como-se-preparar">
+                                <Link href="/sobre/como-se-preparar">
                                     Como se Preparar
                                 </Link>
                             </Button>
-                            <Button
-                                asChild
-                                variant="secondary"
-                            >
+                            <Button asChild variant="secondary">
                                 <Link href="/">Próximos Eventos</Link>
                             </Button>
                         </div>
