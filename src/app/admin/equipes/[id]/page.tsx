@@ -2,10 +2,8 @@ import { EquipeForm } from "../components/equipe-form";
 import { notFound } from "next/navigation";
 import { getTeamById } from "../actions";
 
-export default async function EditarEquipePage({
-    params,
-}: {
-    params: { id: string };
+export default async function EditarEquipePage({ params }: {
+    params: Promise<{ id: string }>
 }) {
     const { id } = await params
     const equipe = await getTeamById(id)

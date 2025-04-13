@@ -13,18 +13,16 @@ import { Trophy, Clock, Users, CheckCircle, Award } from "lucide-react";
 import { notFound } from "next/navigation";
 import { getEventbyId, getEventTeams } from "../actions";
 
-export default async function EventoAnteriorPage({
-    params,
-}: {
-    params: { id: string };
+export default async function EventoAnteriorPage({ params }: {
+    params: Promise<{ id: string }>
 }) {
-    const { id } = await params;
+    const { id } = await params
     const evento = await getEventbyId(id);
-
+  
     if (!evento) {
-        notFound();
+      notFound();
     }
-
+  
     const equipes = await getEventTeams(evento.id);
 
     const totalEquipes = equipes?.length || 0;

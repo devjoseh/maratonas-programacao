@@ -3,10 +3,8 @@ import { EventoForm } from "../components/evento-form";
 import { notFound } from "next/navigation";
 import { getEventById } from "../actions";
 
-export default async function EditarEventoPage({
-    params,
-}: {
-    params: { id: string };
+export default async function EditarEventoPage({ params }: {
+    params: Promise<{ id: string }>
 }) {
     const { id } = await params
     const evento = await getEventById(id)
