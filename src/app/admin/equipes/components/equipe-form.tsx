@@ -1,22 +1,12 @@
 "use client";
 
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Label, Input, Button, useToast, RadioGroup, RadioGroupItem } from "@/components";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import type { Participante } from "@/utils/types/types";
 import { createEquipe, updateEquipe } from "../actions";
 import { createClient } from "@/utils/supabase/client";
-import { useToast } from "@/components/ui/use-toast";
 import { PlusIcon, TrashIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
@@ -32,15 +22,15 @@ export function EquipeForm({ equipe }: EquipeFormProps) {
     const [selectedEventoId, setSelectedEventoId] = useState<string>(
         equipe?.evento_id || ""
     );
+
     const [participantes, setParticipantes] = useState<Participante[]>(
         equipe?.participantes?.map((p: Participante) => ({
             ...p,
             periodo: p.periodo || "Manhã",
         })) || [{ nome: "", serie: "", funcao: "aluno", periodo: "Manhã" }]
     );
-    const [tipoEquipe, setTipoEquipe] = useState<
-        "competidores" | "organizacao"
-    >(equipe?.tipo_equipe || "competidores");
+
+    const [tipoEquipe, setTipoEquipe] = useState<"competidores" | "organizacao">(equipe?.tipo_equipe || "competidores");
 
     // Buscar eventos disponíveis
     useEffect(() => {
@@ -101,17 +91,14 @@ export function EquipeForm({ equipe }: EquipeFormProps) {
 
         // Atualizar a função dos participantes com base no tipo de equipe
         if (participantes.length > 0) {
-            const defaultFuncao =
-                value === "competidores" ? "aluno" : "professor";
+            const defaultFuncao = value === "competidores" ? "aluno" : "professor";
             const newParticipantes = participantes.map((p) => ({
                 ...p,
-                funcao:
-                    value === "competidores"
-                        ? "aluno"
-                        : p.funcao === "aluno"
-                        ? defaultFuncao
-                        : p.funcao,
+                funcao: value === "competidores"
+                    ? "aluno" : p.funcao === "aluno"
+                    ? defaultFuncao : p.funcao,
             }));
+            
             setParticipantes(newParticipantes as any);
         }
     };
@@ -133,16 +120,14 @@ export function EquipeForm({ equipe }: EquipeFormProps) {
             setIsSubmitting(false);
             toast({
                 title: "Erro",
-                description:
-                    error instanceof Error
-                        ? error.message
-                        : "Ocorreu um erro ao salvar a equipe",
+                description: error instanceof Error
+                    ? error.message
+                    : "Ocorreu um erro ao salvar a equipe",
                 variant: "destructive",
             });
         }
     };
 
-    // Verificar se o evento está finalizado
     const isEventoFinalizado = equipe?.eventos?.status === "finalizado";
 
     return (
@@ -205,35 +190,19 @@ export function EquipeForm({ equipe }: EquipeFormProps) {
                         <Label>Tipo de Equipe</Label>
                         <RadioGroup
                             value={tipoEquipe}
-                            onValueChange={(v) =>
-                                handleTipoEquipeChange(
-                                    v as "competidores" | "organizacao"
-                                )
-                            }
+                            onValueChange={(v) => handleTipoEquipeChange(v as "competidores" | "organizacao")}
                             className="flex flex-col space-y-1"
                             disabled={isSubmitting || isEventoFinalizado}
                         >
                             <div className="flex items-center space-x-2">
-                                <RadioGroupItem
-                                    value="competidores"
-                                    id="competidores"
-                                />
-                                <Label
-                                    htmlFor="competidores"
-                                    className="cursor-pointer"
-                                >
+                                <RadioGroupItem value="competidores" id="competidores"/>
+                                <Label htmlFor="competidores" className="cursor-pointer">
                                     Equipe de Competidores
                                 </Label>
                             </div>
                             <div className="flex items-center space-x-2">
-                                <RadioGroupItem
-                                    value="organizacao"
-                                    id="organizacao"
-                                />
-                                <Label
-                                    htmlFor="organizacao"
-                                    className="cursor-pointer"
-                                >
+                                <RadioGroupItem value="organizacao" id="organizacao"/>
+                                <Label htmlFor="organizacao" className="cursor-pointer">
                                     Equipe de Organização
                                 </Label>
                             </div>
@@ -246,9 +215,7 @@ export function EquipeForm({ equipe }: EquipeFormProps) {
                         </Label>
                         <Select
                             name="status_inscricao"
-                            defaultValue={
-                                equipe?.status_inscricao || "pendente"
-                            }
+                            defaultValue={equipe?.status_inscricao || "pendente"}
                             disabled={isSubmitting || isEventoFinalizado}
                         >
                             <SelectTrigger id="status_inscricao">
@@ -453,10 +420,8 @@ export function EquipeForm({ equipe }: EquipeFormProps) {
                     }
                 >
                     {isSubmitting
-                        ? "Salvando..."
-                        : equipe
-                        ? "Atualizar"
-                        : "Criar"}
+                        ? "Salvando..." : equipe
+                        ? "Atualizar" : "Criar"}
                 </Button>
             </div>
         </form>

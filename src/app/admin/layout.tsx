@@ -1,37 +1,20 @@
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { CalendarIcon, UsersIcon, HomeIcon, LogOutIcon, MenuIcon, FileTextIcon } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { signOut as signOutAction } from "@/utils/actions/auth";
+import { isAuthenticated } from "@/utils/actions/auth";
+import { Button } from "@/components/ui/button";
 import type { Metadata } from "next";
 import type React from "react";
 import Link from "next/link";
-import {
-    CalendarIcon,
-    UsersIcon,
-    HomeIcon,
-    LogOutIcon,
-    MenuIcon,
-    FileTextIcon,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { isAuthenticated } from "@/utils/actions/auth";
 
 export const metadata: Metadata = {
     title: "Admin - Maratona de Programação",
-    description:
-        "Painel de administração para gerenciar maratonas de programação",
+    description: "Painel de administração para gerenciar maratonas de programação",
 };
 
-export default async function AdminLayout({
-    children,
-}: {
+export default async function AdminLayout({ children }: {
     children: React.ReactNode;
 }) {
     const user = await isAuthenticated();
@@ -42,11 +25,7 @@ export default async function AdminLayout({
             <div className="fixed top-4 left-4 z-40 md:hidden">
                 <Sheet>
                     <SheetTrigger asChild>
-                        <Button
-                            variant="outline"
-                            size="icon"
-                            className="bg-white"
-                        >
+                        <Button variant="outline" size="icon" className="bg-white">
                             <MenuIcon className="h-5 w-5" />
                             <span className="sr-only">Abrir menu</span>
                         </Button>
@@ -61,10 +40,7 @@ export default async function AdminLayout({
             <div className="hidden md:flex md:w-64 md:flex-col">
                 <div className="flex flex-col flex-grow pt-5 overflow-y-auto bg-white border-r">
                     <div className="flex items-center flex-shrink-0 px-4">
-                        <Link
-                            href="/admin"
-                            className="font-bold text-xl text-gray-900"
-                        >
+                        <Link href="/admin" className="font-bold text-xl text-gray-900">
                             Admin Maratona
                         </Link>
                     </div>
@@ -111,10 +87,7 @@ export default async function AdminLayout({
                         <div className="flex justify-end h-16 items-center">
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
-                                    <Button
-                                        variant="ghost"
-                                        className="flex items-center space-x-2"
-                                    >
+                                    <Button variant="ghost" className="flex items-center space-x-2">
                                         <Avatar className="h-8 w-8">
                                             <AvatarImage
                                                 src="/placeholder.svg"
@@ -201,11 +174,7 @@ function MobileSidebar() {
                 </nav>
             </div>
             <div className="px-4 py-4 border-t">
-                <Button
-                    variant="destructive"
-                    className="w-full flex items-center justify-center"
-                    asChild
-                >
+                <Button variant="destructive" className="w-full flex items-center justify-center" asChild>
                     <Link href="/logout">
                         <LogOutIcon className="mr-2 h-4 w-4" />
                         <span>Sair</span>

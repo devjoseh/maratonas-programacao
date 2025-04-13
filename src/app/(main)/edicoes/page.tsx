@@ -6,10 +6,8 @@ import Link from "next/link";
 export default async function PreviousEditions() {
     const eventos = await getEvents();
 
-    const etecEditions =
-        eventos?.filter((e) => e.instituicao === "ETEC Abdias") || [];
-    const fatecEditions =
-        eventos?.filter((e) => e.instituicao === "FATEC") || [];
+    const etecEditions = eventos?.filter((e) => e.instituicao === "ETEC Abdias") || [];
+    const fatecEditions = eventos?.filter((e) => e.instituicao === "FATEC") || [];
 
     return (
         <div className="flex flex-col w-full">
@@ -56,10 +54,7 @@ export default async function PreviousEditions() {
                                             <p className="text-gray-600 mb-4">
                                                 {edition.titulo}
                                             </p>
-                                            <Button
-                                                variant="outline"
-                                                className="w-full"
-                                            >
+                                            <Button variant="outline" className="w-full">
                                                 Ver detalhes
                                             </Button>
                                         </div>
@@ -102,10 +97,7 @@ export default async function PreviousEditions() {
                                             <p className="text-gray-600 mb-4">
                                                 {edition.titulo}
                                             </p>
-                                            <Button
-                                                variant="outline"
-                                                className="w-full"
-                                            >
+                                            <Button variant="outline" className="w-full">
                                                 Ver detalhes
                                             </Button>
                                         </div>

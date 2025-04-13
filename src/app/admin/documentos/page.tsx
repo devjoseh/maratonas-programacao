@@ -1,18 +1,11 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { createClient } from "@/utils/supabase/server";
+import { Tabs, TabsContent, TabsList, TabsTrigger, Skeleton } from "@/components"
 import { DocumentosTable } from "./components/documentos-table";
 import { CategoriasTable } from "./components/categorias-table";
+import { getDocuments } from "./actions";
 import { Suspense } from "react";
-import { Skeleton } from "@/components/ui/skeleton";
 
 export default async function DocumentosPage() {
-    const supabase = await createClient();
-
-    // Buscar categorias
-    const { data: categorias } = await supabase
-        .from("categorias_documentos")
-        .select()
-        .order("nome", { ascending: true });
+    const categorias = await getDocuments()
 
     return (
         <div className="space-y-6">
@@ -32,16 +25,12 @@ export default async function DocumentosPage() {
                     <TabsTrigger value="categorias">Categorias</TabsTrigger>
                 </TabsList>
                 <TabsContent value="documentos" className="space-y-4">
-                    <Suspense
-                        fallback={<Skeleton className="h-[400px] w-full" />}
-                    >
+                    <Suspense fallback={<Skeleton className="h-[400px] w-full" />}>
                         <DocumentosTable categorias={categorias as any || []} />
                     </Suspense>
                 </TabsContent>
                 <TabsContent value="categorias" className="space-y-4">
-                    <Suspense
-                        fallback={<Skeleton className="h-[400px] w-full" />}
-                    >
+                    <Suspense fallback={<Skeleton className="h-[400px] w-full" />}>
                         <CategoriasTable categorias={categorias as any || []} />
                     </Suspense>
                 </TabsContent>

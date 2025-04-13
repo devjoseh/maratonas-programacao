@@ -1,6 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CalendarIcon, UsersIcon, CheckCircleIcon, ClockIcon } from "lucide-react";
-import { isAuthenticated } from "@/utils/actions/auth";
 import { Button } from "@/components/ui/button";
 import { getStastistics } from "./actions";
 import Link from "next/link";
@@ -60,9 +59,7 @@ export default async function AdminDashboard() {
                                     Eventos Planejados
                                 </p>
                                 <p className="text-2xl font-bold">
-                                    {eventosAtivos?.filter(
-                                        (e) => e.status === "planejado"
-                                    ).length || 0}
+                                    {eventosAtivos?.filter((e) => e.status === "planejado").length || 0}
                                 </p>
                             </div>
                         </div>
@@ -80,9 +77,7 @@ export default async function AdminDashboard() {
                                     Eventos em Andamento
                                 </p>
                                 <p className="text-2xl font-bold">
-                                    {eventosAtivos?.filter(
-                                        (e) => e.status === "em_andamento"
-                                    ).length || 0}
+                                    {eventosAtivos?.filter((e) => e.status === "em_andamento").length || 0}
                                 </p>
                             </div>
                         </div>
@@ -102,21 +97,13 @@ export default async function AdminDashboard() {
                         {eventosAtivos && eventosAtivos.length > 0 ? (
                             <div className="space-y-4">
                                 {eventosAtivos.map((evento) => (
-                                    <div
-                                        key={evento.id}
-                                        className="flex justify-between items-center p-4 border rounded-lg"
-                                    >
+                                    <div key={evento.id} className="flex justify-between items-center p-4 border rounded-lg">
                                         <div>
                                             <p className="font-medium">
                                                 {evento.titulo}
                                             </p>
                                             <p className="text-sm text-gray-500">
-                                                {new Date(
-                                                    evento.data_inicio
-                                                ).toLocaleDateString(
-                                                    "pt-BR"
-                                                )}{" "}
-                                                - {evento.instituicao}
+                                                {new Date(evento.data_inicio).toLocaleDateString("pt-BR")}{" "} - {evento.instituicao}
                                             </p>
                                         </div>
                                         <div>
@@ -167,21 +154,13 @@ export default async function AdminDashboard() {
                                 </Link>
                             </Button>
 
-                            <Button
-                                asChild
-                                variant="outline"
-                                className="w-full"
-                            >
+                            <Button asChild variant="outline" className="w-full">
                                 <Link href="/admin/equipes/nova">
                                     Cadastrar Nova Equipe
                                 </Link>
                             </Button>
 
-                            <Button
-                                asChild
-                                variant="outline"
-                                className="w-full"
-                            >
+                            <Button asChild variant="outline" className="w-full">
                                 <Link href="/admin/eventos">
                                     Gerenciar Eventos
                                 </Link>

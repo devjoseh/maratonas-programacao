@@ -3,6 +3,17 @@
 import { createClient } from "@/utils/supabase/server";
 import { revalidatePath } from "next/cache";
 
+export async function getDocuments() {
+    const supabase = await createClient();
+
+    const { data } = await supabase
+    .from("categorias_documentos")
+    .select()
+    .order("nome", { ascending: true });
+
+    return data;
+}
+
 // Ações para Documentos
 export async function createDocumento(formData: FormData) {
     const supabase = await createClient();

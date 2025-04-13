@@ -1,42 +1,16 @@
 "use client";
 
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from "@/components/ui/table";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { PlusIcon, FolderIcon, TrashIcon, PencilIcon } from "lucide-react";
-import { useToast } from "@/components/ui/use-toast";
+import type { CategoriaDocumento } from "@/utils/types/types";
+import { Button, Switch, useToast } from "@/components"
+import { createClient } from "@/utils/supabase/client";
 import { CategoriaDialog } from "./categoria-dialog";
 import { deleteCategoria } from "../actions";
 import { useRouter } from "next/navigation";
-import type { CategoriaDocumento } from "@/utils/types/types";
-import { Switch } from "@/components/ui/switch";
-import {
-    AlertDialog,
-    AlertDialogAction,
-    AlertDialogCancel,
-    AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogTitle,
-    AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
-import { createClient } from "@/utils/supabase/client";
+import { useState } from "react";
 
 interface CategoriasTableProps {
     categorias: CategoriaDocumento[];
@@ -48,10 +22,8 @@ export function CategoriasTable({
     const { toast } = useToast();
     const router = useRouter();
     const [isDialogOpen, setIsDialogOpen] = useState(false);
-    const [categorias, setCategorias] =
-        useState<CategoriaDocumento[]>(initialCategorias);
-    const [editingCategoria, setEditingCategoria] =
-        useState<CategoriaDocumento | null>(null);
+    const [categorias, setCategorias] = useState<CategoriaDocumento[]>(initialCategorias);
+    const [editingCategoria, setEditingCategoria] = useState<CategoriaDocumento | null>(null);
     const [isLoading, setIsLoading] = useState(false);
 
     // Carregar categorias
@@ -78,10 +50,9 @@ export function CategoriasTable({
         } catch (error) {
             toast({
                 title: "Erro",
-                description:
-                    error instanceof Error
-                        ? error.message
-                        : "Ocorreu um erro ao excluir a categoria",
+                description: error instanceof Error
+                    ? error.message
+                    : "Ocorreu um erro ao excluir a categoria",
                 variant: "destructive",
             });
         }
@@ -106,19 +77,16 @@ export function CategoriasTable({
                 title: categoria.ativo
                     ? "Categoria desativada"
                     : "Categoria ativada",
-                description: `A categoria foi ${
-                    categoria.ativo ? "desativada" : "ativada"
-                } com sucesso.`,
+                description: `A categoria foi ${categoria.ativo ? "desativada" : "ativada"} com sucesso.`,
             });
 
             loadCategorias();
         } catch (error) {
             toast({
                 title: "Erro",
-                description:
-                    error instanceof Error
-                        ? error.message
-                        : "Ocorreu um erro ao atualizar a categoria",
+                description: error instanceof Error
+                    ? error.message
+                    : "Ocorreu um erro ao atualizar a categoria",
                 variant: "destructive",
             });
         }
@@ -130,12 +98,7 @@ export function CategoriasTable({
                 <h2 className="text-xl font-semibold">
                     Categorias de Documentos
                 </h2>
-                <Button
-                    onClick={() => {
-                        setEditingCategoria(null);
-                        setIsDialogOpen(true);
-                    }}
-                >
+                <Button onClick={() => { setEditingCategoria(null); setIsDialogOpen(true) }}>
                     <PlusIcon className="h-4 w-4 mr-2" />
                     Nova Categoria
                 </Button>
@@ -162,10 +125,7 @@ export function CategoriasTable({
                             </p>
                             <Button
                                 variant="outline"
-                                onClick={() => {
-                                    setEditingCategoria(null);
-                                    setIsDialogOpen(true);
-                                }}
+                                onClick={() => { setEditingCategoria(null); setIsDialogOpen(true);}}
                             >
                                 <PlusIcon className="h-4 w-4 mr-2" />
                                 Adicionar Categoria
@@ -200,11 +160,7 @@ export function CategoriasTable({
                                             <TableCell>
                                                 <Switch
                                                     checked={categoria.ativo}
-                                                    onCheckedChange={() =>
-                                                        handleToggleAtivo(
-                                                            categoria
-                                                        )
-                                                    }
+                                                    onCheckedChange={() => handleToggleAtivo(categoria)}
                                                 />
                                             </TableCell>
                                             <TableCell className="text-right">
@@ -212,58 +168,33 @@ export function CategoriasTable({
                                                     <Button
                                                         variant="outline"
                                                         size="icon"
-                                                        onClick={() =>
-                                                            handleEdit(
-                                                                categoria
-                                                            )
-                                                        }
+                                                        onClick={() => handleEdit(categoria)}
                                                     >
                                                         <PencilIcon className="h-4 w-4" />
                                                     </Button>
                                                     <AlertDialog>
-                                                        <AlertDialogTrigger
-                                                            asChild
-                                                        >
-                                                            <Button
-                                                                variant="destructive"
-                                                                size="icon"
-                                                            >
+                                                        <AlertDialogTrigger asChild>
+                                                            <Button variant="destructive" size="icon">
                                                                 <TrashIcon className="h-4 w-4" />
                                                             </Button>
                                                         </AlertDialogTrigger>
                                                         <AlertDialogContent>
                                                             <AlertDialogHeader>
                                                                 <AlertDialogTitle>
-                                                                    Excluir
-                                                                    categoria
+                                                                    Excluir categoria
                                                                 </AlertDialogTitle>
                                                                 <AlertDialogDescription>
-                                                                    Tem certeza
-                                                                    que deseja
-                                                                    excluir esta
-                                                                    categoria?
-                                                                    Todos os
-                                                                    documentos
-                                                                    associados a
-                                                                    ela também
-                                                                    serão
-                                                                    excluídos.
-                                                                    Esta ação
-                                                                    não pode ser
-                                                                    desfeita.
+                                                                    Tem certeza que deseja excluir esta
+                                                                    categoria? Todos os documentos associados a
+                                                                    ela também serão excluídos. Esta ação
+                                                                    não pode ser desfeita.
                                                                 </AlertDialogDescription>
                                                             </AlertDialogHeader>
                                                             <AlertDialogFooter>
                                                                 <AlertDialogCancel>
                                                                     Cancelar
                                                                 </AlertDialogCancel>
-                                                                <AlertDialogAction
-                                                                    onClick={() =>
-                                                                        handleDelete(
-                                                                            categoria.id
-                                                                        )
-                                                                    }
-                                                                >
+                                                                <AlertDialogAction onClick={() =>handleDelete(categoria.id)}>
                                                                     Excluir
                                                                 </AlertDialogAction>
                                                             </AlertDialogFooter>

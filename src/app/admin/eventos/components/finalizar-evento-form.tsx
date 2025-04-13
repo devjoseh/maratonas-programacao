@@ -2,12 +2,9 @@
 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button, Input, Label, useToast } from "@/components"
 import type { Evento, Vencedor } from "@/utils/types/types";
 import { createClient } from "@/utils/supabase/client";
-import { useToast } from "@/components/ui/use-toast";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { finalizarEvento } from "../actions";
 import { useState, useEffect } from "react";
 
@@ -104,10 +101,9 @@ export function FinalizarEventoForm({ evento }: FinalizarEventoFormProps) {
             setIsSubmitting(false);
             toast({
                 title: "Erro",
-                description:
-                    error instanceof Error
-                        ? error.message
-                        : "Ocorreu um erro ao finalizar o evento",
+                description: error instanceof Error
+                    ? error.message
+                    : "Ocorreu um erro ao finalizar o evento",
                 variant: "destructive",
             });
         }
@@ -130,11 +126,7 @@ export function FinalizarEventoForm({ evento }: FinalizarEventoFormProps) {
                             id="problemas_resolvidos"
                             type="number"
                             value={problemas}
-                            onChange={(e) =>
-                                setProblemas(
-                                    Number.parseInt(e.target.value) || 0
-                                )
-                            }
+                            onChange={(e) => setProblemas(Number.parseInt(e.target.value) || 0)}
                             min={0}
                             className="max-w-xs"
                         />
@@ -154,23 +146,14 @@ export function FinalizarEventoForm({ evento }: FinalizarEventoFormProps) {
                                 <Label>Equipe</Label>
                                 <Select
                                     value={vencedor.equipe_id}
-                                    onValueChange={(value) =>
-                                        handleVencedorChange(
-                                            index,
-                                            "equipe_id",
-                                            value
-                                        )
-                                    }
+                                    onValueChange={(value) => handleVencedorChange(index, "equipe_id", value)}
                                 >
                                     <SelectTrigger>
                                         <SelectValue placeholder="Selecione uma equipe" />
                                     </SelectTrigger>
                                     <SelectContent>
                                         {equipes.map((equipe) => (
-                                            <SelectItem
-                                                key={equipe.id}
-                                                value={equipe.id}
-                                            >
+                                            <SelectItem key={equipe.id} value={equipe.id}>
                                                 {equipe.nome_equipe}
                                             </SelectItem>
                                         ))}
@@ -183,8 +166,8 @@ export function FinalizarEventoForm({ evento }: FinalizarEventoFormProps) {
                                 <Input
                                     type="number"
                                     value={vencedor.problemas_resolvidos}
-                                    onChange={(e) =>
-                                        handleVencedorChange(
+                                    onChange={
+                                        (e) => handleVencedorChange(
                                             index,
                                             "problemas_resolvidos",
                                             Number.parseInt(e.target.value) || 0
@@ -196,32 +179,21 @@ export function FinalizarEventoForm({ evento }: FinalizarEventoFormProps) {
                             </div>
 
                             <div className="flex items-end">
-                                <Button
-                                    type="button"
-                                    variant="destructive"
-                                    onClick={() => handleRemoveVencedor(index)}
-                                >
+                                <Button type="button" variant="destructive" onClick={() => handleRemoveVencedor(index)}>
                                     Remover
                                 </Button>
                             </div>
                         </div>
                     ))}
 
-                    <Button
-                        type="button"
-                        variant="outline"
-                        onClick={handleAddVencedor}
-                    >
+                    <Button type="button" variant="outline" onClick={handleAddVencedor}>
                         Adicionar Vencedor
                     </Button>
                 </CardContent>
             </Card>
 
             <div className="flex justify-end">
-                <Button
-                    type="submit"
-                    disabled={isSubmitting || vencedores.length === 0}
-                >
+                <Button type="submit" disabled={isSubmitting || vencedores.length === 0}>
                     {isSubmitting ? "Finalizando..." : "Finalizar Evento"}
                 </Button>
             </div>

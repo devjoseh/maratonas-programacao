@@ -88,56 +88,31 @@ export default async function EventosPage() {
                                         <td className="px-6 py-4 whitespace-nowrap">
                                             <span
                                                 className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                                                    evento.status ===
-                                                    "planejado"
-                                                        ? "bg-yellow-100 text-yellow-800"
-                                                        : evento.status ===
-                                                          "em_andamento"
-                                                        ? "bg-green-100 text-green-800"
-                                                        : "bg-gray-100 text-gray-800"
+                                                    evento.status === "planejado"
+                                                        ? "bg-yellow-100 text-yellow-800" : evento.status === "em_andamento"
+                                                        ? "bg-green-100 text-green-800" : "bg-gray-100 text-gray-800"
                                                 }`}
                                             >
                                                 {evento.status === "planejado"
-                                                    ? "Planejado"
-                                                    : evento.status ===
-                                                      "em_andamento"
-                                                    ? "Em Andamento"
-                                                    : "Finalizado"}
+                                                    ? "Planejado" : evento.status === "em_andamento"
+                                                    ? "Em Andamento" : "Finalizado"}
                                             </span>
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            {Array.isArray(
-                                                evento.equipes_inscritas
-                                            )
-                                                ? evento.equipes_inscritas
-                                                      .length
+                                            {Array.isArray(evento.equipes_inscritas)
+                                                ? evento.equipes_inscritas.length
                                                 : 0}
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                             <div className="flex justify-end space-x-2">
-                                                <Button
-                                                    asChild
-                                                    variant="ghost"
-                                                    size="sm"
-                                                >
-                                                    <Link
-                                                        href={`/admin/eventos/${evento.id}`}
-                                                    >
+                                                <Button asChild variant="ghost" size="sm">
+                                                    <Link href={`/admin/eventos/${evento.id}`}>
                                                         <PencilIcon className="h-4 w-4" />
                                                     </Link>
                                                 </Button>
                                                 <form action={deleteEvento}>
-                                                    <input
-                                                        type="hidden"
-                                                        name="id"
-                                                        value={evento.id}
-                                                    />
-                                                    <Button
-                                                        variant="ghost"
-                                                        size="sm"
-                                                        type="submit"
-                                                        className="text-red-600 hover:text-red-800"
-                                                    >
+                                                    <input type="hidden" name="id" value={evento.id}/>
+                                                    <Button variant="ghost" size="sm" type="submit" className="text-red-600 hover:text-red-800">
                                                         <TrashIcon className="h-4 w-4" />
                                                     </Button>
                                                 </form>
@@ -147,10 +122,7 @@ export default async function EventosPage() {
                                 ))
                             ) : (
                                 <tr>
-                                    <td
-                                        colSpan={7}
-                                        className="px-6 py-4 text-center text-sm text-gray-500"
-                                    >
+                                    <td colSpan={7} className="px-6 py-4 text-center text-sm text-gray-500">
                                         Nenhum evento encontrado
                                     </td>
                                 </tr>

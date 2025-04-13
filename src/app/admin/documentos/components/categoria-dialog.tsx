@@ -1,24 +1,11 @@
 "use client";
 
-import type React from "react";
-
-import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/components/ui/use-toast";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Button, Input, Label, Textarea, useToast, Switch } from "@/components";
 import { createCategoria, updateCategoria } from "../actions";
 import type { CategoriaDocumento } from "@/utils/types/types";
-import { Switch } from "@/components/ui/switch";
+import { useState, useEffect } from "react";
+import type React from "react";
 
 interface CategoriaDialogProps {
     open: boolean;
@@ -58,12 +45,11 @@ export function CategoriaDialog({
     // Gerar slug a partir do nome
     const handleNomeChange = (value: string) => {
         setNome(value);
-        setSlug(
-            value
-                .toLowerCase()
-                .replace(/[^\w\s-]/g, "")
-                .replace(/[\s_-]+/g, "-")
-                .replace(/^-+|-+$/g, "")
+        setSlug(value
+            .toLowerCase()
+            .replace(/[^\w\s-]/g, "")
+            .replace(/[\s_-]+/g, "-")
+            .replace(/^-+|-+$/g, "")
         );
     };
 
@@ -92,10 +78,9 @@ export function CategoriaDialog({
         } catch (error) {
             toast({
                 title: "Erro",
-                description:
-                    error instanceof Error
-                        ? error.message
-                        : "Ocorreu um erro ao salvar a categoria",
+                description: error instanceof Error
+                    ? error.message
+                    : "Ocorreu um erro ao salvar a categoria",
                 variant: "destructive",
             });
         } finally {
@@ -126,9 +111,7 @@ export function CategoriaDialog({
                                 id="nome"
                                 name="nome"
                                 value={nome}
-                                onChange={(e) =>
-                                    handleNomeChange(e.target.value)
-                                }
+                                onChange={(e) => handleNomeChange(e.target.value)}
                                 placeholder="Nome da categoria"
                                 className="col-span-3"
                                 required
@@ -195,10 +178,8 @@ export function CategoriaDialog({
                         </Button>
                         <Button type="submit" disabled={isSubmitting}>
                             {isSubmitting
-                                ? "Salvando..."
-                                : categoria
-                                ? "Atualizar"
-                                : "Criar"}
+                                ? "Salvando..." : categoria
+                                ? "Atualizar" : "Criar"}
                         </Button>
                     </DialogFooter>
                 </form>

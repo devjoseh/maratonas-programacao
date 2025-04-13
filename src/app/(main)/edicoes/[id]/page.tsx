@@ -1,22 +1,13 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from "@/components/ui/table";
-import { Card, CardContent } from "@/components/ui/card";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Trophy, Clock, Users, CheckCircle, Award } from "lucide-react";
-import { notFound } from "next/navigation";
+import { Card, CardContent } from "@/components/ui/card";
 import { getEventbyId, getEventTeams } from "../actions";
+import { Button } from "@/components/ui/button";
+import { notFound } from "next/navigation";
+import Link from "next/link";
 
-export default async function EventoAnteriorPage({
-    params,
-}: {
-    params: Promise<{ id: string }>;
+export default async function EventoAnteriorPage({ params }: { 
+    params: Promise<{ id: string }> 
 }) {
     const { id } = await params;
     const evento = await getEventbyId(id);
@@ -28,60 +19,40 @@ export default async function EventoAnteriorPage({
     const equipes = await getEventTeams(evento.id);
 
     const totalEquipes = equipes?.length || 0;
-    const totalParticipantes =
-        equipes
-            ?.filter((equipe) => equipe.tipo_equipe !== "organizacao")
-            ?.reduce((acc, equipe) => {
-                return (
-                    acc +
-                    (Array.isArray(equipe.participantes)
-                        ? equipe.participantes.length
-                        : 0)
-                );
-            }, 0) || 0;
+    const totalParticipantes = equipes
+    ?.filter((equipe) => equipe.tipo_equipe !== "organizacao")
+    ?.reduce((acc, equipe) => {
+        return (acc + (Array.isArray(equipe.participantes)
+            ? equipe.participantes.length
+            : 0)
+        );
+    }, 0) || 0;
 
-    const totalAlunos =
-        equipes?.reduce((acc, equipe) => {
-            return (
-                acc +
-                (Array.isArray(equipe.participantes)
-                    ? equipe.participantes.filter(
-                          (p: any) => p.funcao === "aluno"
-                      ).length
-                    : 0)
-            );
-        }, 0) || 0;
+    const totalAlunos = equipes?.reduce((acc, equipe) => {
+        return (acc + (Array.isArray(equipe.participantes)
+            ? equipe.participantes.filter((p: any) => p.funcao === "aluno").length
+            : 0)
+        );
+    }, 0) || 0;
 
-    const totalProfessores =
-        equipes?.reduce((acc, equipe) => {
-            return (
-                acc +
-                (Array.isArray(equipe.participantes)
-                    ? equipe.participantes.filter(
-                          (p: any) => p.funcao === "professor"
-                      ).length
-                    : 0)
-            );
-        }, 0) || 0;
+    const totalProfessores = equipes?.reduce((acc, equipe) => {
+        return (acc + (Array.isArray(equipe.participantes)
+            ? equipe.participantes.filter((p: any) => p.funcao === "professor").length
+            : 0)
+        );
+    }, 0) || 0;
 
-    const totalJuizes =
-        equipes?.reduce((acc, equipe) => {
-            return (
-                acc +
-                (Array.isArray(equipe.participantes)
-                    ? equipe.participantes.filter(
-                          (p: any) => p.funcao === "juiz"
-                      ).length
-                    : 0)
-            );
-        }, 0) || 0;
+    const totalJuizes = equipes?.reduce((acc, equipe) => {
+        return (acc + (Array.isArray(equipe.participantes)
+            ? equipe.participantes.filter((p: any) => p.funcao === "juiz").length
+            : 0)
+        );
+    }, 0) || 0;
 
-    // Ordenar vencedores por posição
     const vencedores: any = Array.isArray(evento.vencedores)
         ? [...evento.vencedores].sort((a: any, b: any) => a.posicao - b.posicao)
         : [];
 
-    // Função para renderizar HTML da descrição
     const renderDescricao = () => {
         if (!evento.descricao) return { __html: "" };
 
@@ -89,27 +60,14 @@ export default async function EventoAnteriorPage({
             .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
             .replace(/\*(.*?)\*/g, "<em>$1</em>")
             .replace(/<u>(.*?)<\/u>/g, "<u>$1</u>")
-            .replace(
-                /\[(.*?)\]$$(.*?)$$/g,
-                '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">$1</a>'
-            )
-            .replace(
-                /!\[(.*?)\]$$(.*?)$$/g,
-                '<img src="$2" alt="$1" class="max-w-full rounded-md my-4" />'
-            )
+            .replace(/\[(.*?)\]$$(.*?)$$/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">$1</a>')
+            .replace(/!\[(.*?)\]$$(.*?)$$/g, '<img src="$2" alt="$1" class="max-w-full rounded-md my-4" />')
             .replace(/^- (.*)/gm, "<li>$1</li>")
             .replace(/^(\d+)\. (.*)/gm, "<li>$2</li>")
-            .replace(
-                /<li>(.*)<\/li>/g,
-                '<ul class="list-disc pl-6 my-2"><li>$1</li></ul>'
-            )
+            .replace(/<li>(.*)<\/li>/g, '<ul class="list-disc pl-6 my-2"><li>$1</li></ul>')
             .replace(/<\/ul><ul class="list-disc pl-6 my-2">/g, "")
-            .replace(
-                /<div style="text-align: (.*?)">([\s\S]*?)<\/div>/g,
-                '<div style="text-align: $1">$2</div>'
-            )
+            .replace(/<div style="text-align: (.*?)">([\s\S]*?)<\/div>/g, '<div style="text-align: $1">$2</div>')
             .replace(/\n/g, "<br />");
-
         return { __html: html };
     };
 
@@ -157,9 +115,7 @@ export default async function EventoAnteriorPage({
                                     Data do Evento
                                 </h3>
                                 <p className="text-gray-700">
-                                    {new Date(
-                                        evento.data_inicio
-                                    ).toLocaleDateString("pt-BR", {
+                                    {new Date(evento.data_inicio).toLocaleDateString("pt-BR", {
                                         day: "2-digit",
                                         month: "long",
                                         year: "numeric",
@@ -219,10 +175,7 @@ export default async function EventoAnteriorPage({
                                                     {vencedores[1].nome_equipe}
                                                 </p>
                                                 <p className="text-sm font-medium bg-gray-200 rounded-full py-1 px-4 inline-block">
-                                                    {
-                                                        vencedores[1]
-                                                            .problemas_resolvidos
-                                                    }{" "}
+                                                    {vencedores[1].problemas_resolvidos}{" "}
                                                     problemas resolvidos
                                                 </p>
                                             </div>
@@ -245,10 +198,7 @@ export default async function EventoAnteriorPage({
                                                 {vencedores[0].nome_equipe}
                                             </p>
                                             <p className="text-sm font-medium bg-yellow-100 rounded-full py-1 px-4 inline-block">
-                                                {
-                                                    vencedores[0]
-                                                        .problemas_resolvidos
-                                                }{" "}
+                                                {vencedores[0].problemas_resolvidos}{" "}
                                                 problemas resolvidos
                                             </p>
                                         </div>
@@ -271,10 +221,7 @@ export default async function EventoAnteriorPage({
                                                     {vencedores[2].nome_equipe}
                                                 </p>
                                                 <p className="text-sm font-medium bg-orange-100 rounded-full py-1 px-4 inline-block">
-                                                    {
-                                                        vencedores[2]
-                                                            .problemas_resolvidos
-                                                    }{" "}
+                                                    {vencedores[2].problemas_resolvidos}{" "}
                                                     problemas resolvidos
                                                 </p>
                                             </div>
@@ -300,10 +247,7 @@ export default async function EventoAnteriorPage({
                                                 {vencedores[0].nome_equipe}
                                             </p>
                                             <p className="text-sm font-medium bg-yellow-100 rounded-full py-1 px-4 inline-block">
-                                                {
-                                                    vencedores[0]
-                                                        .problemas_resolvidos
-                                                }{" "}
+                                                {vencedores[0].problemas_resolvidos}{" "}
                                                 problemas resolvidos
                                             </p>
                                         </div>
@@ -326,10 +270,7 @@ export default async function EventoAnteriorPage({
                                                     {vencedores[1].nome_equipe}
                                                 </p>
                                                 <p className="text-sm font-medium bg-gray-200 rounded-full py-1 px-4 inline-block">
-                                                    {
-                                                        vencedores[1]
-                                                            .problemas_resolvidos
-                                                    }{" "}
+                                                    {vencedores[1].problemas_resolvidos}{" "}
                                                     problemas resolvidos
                                                 </p>
                                             </div>
@@ -353,10 +294,7 @@ export default async function EventoAnteriorPage({
                                                     {vencedores[2].nome_equipe}
                                                 </p>
                                                 <p className="text-sm font-medium bg-orange-100 rounded-full py-1 px-4 inline-block">
-                                                    {
-                                                        vencedores[2]
-                                                            .problemas_resolvidos
-                                                    }{" "}
+                                                    {vencedores[2].problemas_resolvidos}{" "}
                                                     problemas resolvidos
                                                 </p>
                                             </div>
@@ -406,46 +344,24 @@ export default async function EventoAnteriorPage({
                                                     {equipe.nome_equipe}
                                                 </TableCell>
                                                 <TableCell>
-                                                    {Array.isArray(
-                                                        equipe.participantes
-                                                    )
-                                                        ? equipe.participantes
-                                                              .filter(
-                                                                  (p: any) =>
-                                                                      p.funcao ===
-                                                                      "aluno"
-                                                              )
-                                                              .map(
-                                                                  (p: any) =>
-                                                                      p.nome
-                                                              )
-                                                              .join(", ")
+                                                    {Array.isArray(equipe.participantes)
+                                                        ? equipe.participantes.filter((p: any) => p.funcao === "aluno")
+                                                            .map((p: any) => p.nome)
+                                                            .join(", ")
                                                         : ""}
                                                 </TableCell>
                                                 <TableCell>
-                                                    {Array.isArray(
-                                                        equipe.participantes
-                                                    )
-                                                        ? [
-                                                              ...new Set(
-                                                                  equipe.participantes.map(
-                                                                      (
-                                                                          p: any
-                                                                      ) =>
-                                                                          p.periodo
-                                                                  )
-                                                              ),
-                                                          ].join(", ")
+                                                    {Array.isArray(equipe.participantes)
+                                                        ? [...new Set(equipe.participantes
+                                                            .map((p: any) => p.periodo))]
+                                                            .join(", ")
                                                         : equipe.periodo}
                                                 </TableCell>
                                             </TableRow>
                                         ))
                                     ) : (
                                         <TableRow>
-                                            <TableCell
-                                                colSpan={3}
-                                                className="text-center"
-                                            >
+                                            <TableCell colSpan={3} className="text-center">
                                                 Nenhuma equipe encontrada
                                             </TableCell>
                                         </TableRow>

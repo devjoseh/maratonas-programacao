@@ -1,30 +1,12 @@
 "use client";
 
-import type React from "react";
-
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
-import { useToast } from "@/components/ui/use-toast";
-import { createDocumento } from "../actions";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Button, Input, Label, Textarea, useToast } from "@/components"
 import type { CategoriaDocumento } from "@/utils/types/types";
+import { createDocumento } from "../actions";
+import { useState } from "react";
+import type React from "react";
 
 interface DocumentoDialogProps {
     open: boolean;
@@ -70,10 +52,9 @@ export function DocumentoDialog({
         } catch (error) {
             toast({
                 title: "Erro",
-                description:
-                    error instanceof Error
-                        ? error.message
-                        : "Ocorreu um erro ao adicionar o documento",
+                description: error instanceof Error
+                    ? error.message
+                    : "Ocorreu um erro ao adicionar o documento",
                 variant: "destructive",
             });
         } finally {

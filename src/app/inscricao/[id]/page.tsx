@@ -2,9 +2,7 @@ import { InscricaoForm } from "./components/inscricao-form";
 import { notFound } from "next/navigation";
 import { getEventById } from "./actions";
 
-export default async function InscricaoPage({
-    params,
-}: {
+export default async function InscricaoPage({ params }: {
     params: Promise<{ id: string }>;
 }) {
     const { id } = await params;
@@ -36,14 +34,11 @@ export default async function InscricaoPage({
                         </h2>
                         <p className="text-lg text-gray-200 mb-4">
                             Data do evento:{" "}
-                            {new Date(evento.data_inicio).toLocaleDateString(
-                                "pt-BR",
-                                {
-                                    day: "2-digit",
-                                    month: "long",
-                                    year: "numeric",
-                                }
-                            )}
+                            {new Date(evento.data_inicio).toLocaleDateString("pt-BR", {
+                                day: "2-digit",
+                                month: "long",
+                                year: "numeric",
+                            })}
                         </p>
                     </div>
                 </div>

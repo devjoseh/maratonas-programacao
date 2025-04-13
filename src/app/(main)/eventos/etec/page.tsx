@@ -1,22 +1,13 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CodeIcon, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { getEventsByName } from "../../actions";
 import { CountdownTimer } from "@/components";
+import Link from "next/link";
 
 export default async function ETECEventPage() {
     const event = await getEventsByName("ETEC Abdias");
-    const upcomingEvent = (event || []).sort(
-        (a, b) =>
-            new Date(a.data_inicio).getTime() -
-            new Date(b.data_inicio).getTime()
-    );
+    const upcomingEvent = (event || []).sort((a, b) => new Date(a.data_inicio).getTime() - new Date(b.data_inicio).getTime());
 
     return (
         <div className="flex flex-col w-full">
@@ -43,25 +34,13 @@ export default async function ETECEventPage() {
                         Próximos Eventos
                     </h2>
                     {upcomingEvent.length > 0 ? (
-                        <div
-                            className={`grid grid-cols-1 md:grid-cols-1 gap-8`}
-                        >
+                        <div className={`grid grid-cols-1 md:grid-cols-1 gap-8`}>
                             {upcomingEvent.map((event) => (
                                 <div
                                     key={event.id}
                                     className={`bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200 transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl ${
-                                        upcomingEvent.length === 1
-                                            ? "md:max-w-[50%] md:mx-auto"
-                                            : ""
-                                    }`}
-                                >
-                                    <div
-                                        className={`h-2 ${
-                                            event.instituicao === "ETEC Abdias"
-                                                ? "bg-red-600"
-                                                : "bg-red-700"
-                                        }`}
-                                    ></div>
+                                        upcomingEvent.length === 1 ? "md:max-w-[50%] md:mx-auto" : ""}`}>
+                                    <div className={`h-2 ${event.instituicao === "ETEC Abdias" ? "bg-red-600" : "bg-red-700"}`}></div>
                                     <div className="p-6">
                                         <h3 className="text-2xl font-bold mb-2">
                                             {event.titulo}
@@ -70,46 +49,25 @@ export default async function ETECEventPage() {
                                             {event.instituicao}
                                         </p>
                                         <p className="text-gray-600 mb-6">
-                                            {new Date(
-                                                event.data_inicio
-                                            ).toLocaleDateString("pt-BR", {
+                                            {new Date(event.data_inicio).toLocaleDateString("pt-BR", {
                                                 day: "2-digit",
                                                 month: "long",
                                                 year: "numeric",
                                             })}
                                         </p>
                                         <div className="mb-6">
-                                            <CountdownTimer
-                                                targetDate={event.data_inicio}
-                                            />
+                                            <CountdownTimer targetDate={event.data_inicio}/>
                                         </div>
                                         {event.inscricao_externa ? (
-                                            <Button
-                                                asChild
-                                                className="w-full"
-                                                variant="destructive"
-                                            >
-                                                <a
-                                                    href={
-                                                        event.url_inscricao_externa ||
-                                                        "#"
-                                                    }
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                >
+                                            <Button asChild className="w-full" variant="destructive">
+                                                <a href={event.url_inscricao_externa || "#"} target="_blank" rel="noopener noreferrer">
                                                     Inscrever-se{" "}
                                                     <ExternalLink className="ml-2 h-4 w-4" />
                                                 </a>
                                             </Button>
                                         ) : (
-                                            <Button
-                                                asChild
-                                                className="w-full"
-                                                variant="destructive"
-                                            >
-                                                <Link
-                                                    href={`/inscricao/${event.id}`}
-                                                >
+                                            <Button asChild className="w-full" variant="destructive">
+                                                <Link href={`/inscricao/${event.id}`}>
                                                     Inscrever-se
                                                 </Link>
                                             </Button>
@@ -297,7 +255,7 @@ export default async function ETECEventPage() {
                                 <AccordionContent>
                                     Assim como na maratona brasileira, as
                                     equipes podem enviar suas soluções em C,
-                                    C++, Java ou Python.
+                                    C++, Java, JavaScript ou Python.
                                 </AccordionContent>
                             </AccordionItem>
 
