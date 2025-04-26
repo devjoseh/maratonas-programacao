@@ -97,9 +97,9 @@ export function EventScheduleCard({ school }: EventScheduleCardProps) {
                             Nenhum evento programado no momento
                         </h3>
                         <Button asChild variant="outline">
-                            <Link href="/edicoes">
-                                Ver edições anteriores
-                            </Link>
+                        <Link href={`/edicoes#${school === "ETEC Abdias" ? "etec" : "fatec"}`}>
+                            Ver edições anteriores
+                        </Link>
                         </Button>
                     </div>
                 )}

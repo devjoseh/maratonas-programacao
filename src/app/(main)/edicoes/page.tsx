@@ -30,7 +30,7 @@ export default async function PreviousEditions() {
             </section>
 
             {/* ETEC Previous Editions */}
-            <section className="py-16 bg-white">
+            <section id="etec" className="py-16 bg-white">
                 <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <h2 className="text-3xl font-bold text-center mb-12">
                         ETEC Abdias do Nascimento
@@ -73,7 +73,7 @@ export default async function PreviousEditions() {
             </section>
 
             {/* FATEC Previous Editions */}
-            <section className="py-16 bg-gray-50">
+            <section id="fatec" className="py-16 bg-gray-50">
                 <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <h2 className="text-3xl font-bold text-center mb-12">
                         FATEC
