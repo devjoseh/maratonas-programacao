@@ -57,7 +57,7 @@ export function EventoForm({ evento }: EventoFormProps) {
         <form action={handleSubmit} className="space-y-6">
             {evento && <input type="hidden" name="id" value={evento.id} />}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                 <div className="space-y-4">
                     <div>
                         <Label htmlFor="titulo">Título</Label>
@@ -198,7 +198,7 @@ export function EventoForm({ evento }: EventoFormProps) {
                     )}
                 </div>
 
-                <div className="space-y-4">
+                {/* <div className="space-y-4">
                     <div>
                         <Label htmlFor="imagem">Imagem</Label>
                         <Input
@@ -225,7 +225,7 @@ export function EventoForm({ evento }: EventoFormProps) {
                             </Card>
                         )}
                     </div>
-                </div>
+                </div> */}
             </div>
 
             <div className="space-y-2">
