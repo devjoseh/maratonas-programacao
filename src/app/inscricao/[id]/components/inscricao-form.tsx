@@ -217,9 +217,6 @@ export function InscricaoForm({ evento }: InscricaoFormProps) {
                                             <SelectItem value="Noite">
                                                 Noite
                                             </SelectItem>
-                                            <SelectItem value="Integral">
-                                                Integral
-                                            </SelectItem>
                                         </SelectContent>
                                     </Select>
                                 </div>

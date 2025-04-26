@@ -12,7 +12,7 @@ export type Participante = {
     nome: string;
     serie: string;
     funcao: "aluno" | "professor" | "juiz";
-    periodo?: "Manhã" | "Tarde" | "Noite" | "Integral";
+    periodo?: "Manhã" | "Tarde" | "Noite";
 };
 
 export type Vencedor = {

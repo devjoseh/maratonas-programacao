@@ -1,10 +1,18 @@
 import { PlusIcon, PencilIcon, TrashIcon } from "lucide-react";
-import { deleteEquipe, getTeams } from "./actions";
+import { deleteEquipe, getAllEvents, query } from "./actions";
+import { EquipesFilter } from "./components/equipes-filter";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-export default async function EquipesPage() {
-    const equipes = await getTeams()
+export default async function EquipesPage({
+    searchParams
+}: {
+    searchParams: Promise<{ [key:string]: string | string[] | undefined }>
+}) {
+    const [ events, equipes ] = await Promise.all([
+        await getAllEvents(),
+        await query(await searchParams)
+    ])
 
     return (
         <div>
@@ -17,6 +25,8 @@ export default async function EquipesPage() {
                     </Link>
                 </Button>
             </div>
+
+            <EquipesFilter eventos={events || []} />
 
             <div className="bg-white shadow-md rounded-lg overflow-hidden">
                 <div className="overflow-x-auto">

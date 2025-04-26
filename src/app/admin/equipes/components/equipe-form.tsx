@@ -388,9 +388,6 @@ export function EquipeForm({ equipe }: EquipeFormProps) {
                                                     <SelectItem value="Noite">
                                                         Noite
                                                     </SelectItem>
-                                                    <SelectItem value="Integral">
-                                                        Integral
-                                                    </SelectItem>
                                                 </SelectContent>
                                             </Select>
                                         </div>
