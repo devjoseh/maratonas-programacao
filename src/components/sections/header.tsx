@@ -33,8 +33,8 @@ export function Header() {
                         <Link href="/" className="flex items-center space-x-2">
                             <div className="relative w-10 h-10">
                                 <Image
-                                    src="/placeholder.svg?height=40&width=40"
-                                    alt="Logo Maratona de Programação"
+                                    src="/logo.svg"
+                                    alt="Logo Maratona de Programação Hackas SF"
                                     width={40}
                                     height={40}
                                     className="object-contain"
