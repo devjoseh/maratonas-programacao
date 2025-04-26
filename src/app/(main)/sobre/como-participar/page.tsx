@@ -1,42 +1,19 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { CheckCircleIcon, ClipboardListIcon, UsersIcon, CalendarIcon, AwardIcon } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-    CheckCircleIcon,
-    ClipboardListIcon,
-    UsersIcon,
-    CalendarIcon,
-    AwardIcon,
-} from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function HowToParticipatePage() {
     return (
         <div className="flex flex-col w-full">
-            {/* Hero Section */}
-            <section className="relative w-full bg-gradient-to-br from-gray-800 via-gray-900 to-black overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
-                    <div className="code-animation"></div>
-                </div>
-                <div className="mx-auto px-4 md:px-8 lg:px-16 py-12 md:py-16 relative z-10">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                            Como Participar
-                        </h1>
-                        <p className="text-xl md:text-2xl text-gray-200 mb-8">
-                            Guia completo para participar das maratonas de
-                            programação
-                        </p>
-                    </div>
-                </div>
-            </section>
-
             {/* Steps Section */}
             <section className="py-16 bg-white">
                 <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <div className="max-w-4xl mx-auto">
                         <h2 className="text-3xl font-bold mb-12 text-center">
                             Passos para Participar
+                            <hr className="mt-4 mb-8 border-t-2 border-black-200 w-full" />
                         </h2>
 
                         <div className="relative">

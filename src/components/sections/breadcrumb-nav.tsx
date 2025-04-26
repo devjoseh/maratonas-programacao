@@ -50,7 +50,6 @@ export function BreadcrumbNav() {
 
     return (
         <div className="mx-auto px-4 md:px-8 lg:px-16 py-2">
-        {/* <div className="container mx-auto px-4 py-2"> */}
             <Breadcrumb>
                 <BreadcrumbList>
                     <BreadcrumbItem>

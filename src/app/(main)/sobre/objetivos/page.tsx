@@ -1,48 +1,16 @@
-import {
-    BookOpenIcon,
-    CodeIcon,
-    UsersIcon,
-    BrainIcon,
-    TrophyIcon,
-    RocketIcon,
-} from "lucide-react";
+import { BookOpenIcon, CodeIcon, UsersIcon, BrainIcon, TrophyIcon, RocketIcon } from "lucide-react";
+import { PageTitle } from "@/components";
 
 export default function ObjectivesPage() {
     return (
         <div className="flex flex-col w-full">
-            {/* Hero Section */}
-            <section className="relative w-full bg-gradient-to-br from-gray-800 via-gray-900 to-black overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
-                    <div className="code-animation"></div>
-                </div>
-                <div className="mx-auto px-4 md:px-8 lg:px-16 py-12 md:py-16 relative z-10">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                            Objetivos
-                        </h1>
-                        <p className="text-xl md:text-2xl text-gray-200 mb-8">
-                            Conheça os propósitos e benefícios das maratonas de
-                            programação
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            {/* <section className="py-8">
-                <div className="mx-auto px-4 md:px-8 lg:px-16">
-                    <div className="max-w-4xl mx-auto">
-                        <h2 className="text-3xl font-bold">
-                            Objetivos
-                        </h2>
-                    </div>
-                </div>
-            </section> */}
+            <PageTitle title="Objetivos" />
 
             {/* Main Objectives Section */}
-            <section className="py-16 bg-white">
+            <section className="pb-16 bg-white">
                 <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <div className="max-w-4xl mx-auto">
-                        <h2 className="text-3xl font-bold mb-8">
+                        <h2 className="text-2xl font-bold mb-8">
                             Propósito das Maratonas de Programação
                         </h2>
                         <p className="text-lg text-gray-700 mb-6">

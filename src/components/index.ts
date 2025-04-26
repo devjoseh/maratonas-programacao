@@ -2,6 +2,7 @@
 export * from "./sections/breadcrumb-nav";
 export * from "./sections/footer";
 export * from "./sections/header";
+export * from "./sections/page-title";
 export * from "./sections/quill-editor";
 export * from "./sections/upcomingEvent";
 

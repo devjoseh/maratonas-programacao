@@ -2,8 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ClockIcon, UsersIcon, CodeIcon, CheckIcon } from "lucide-react";
 import { DocumentosList } from "./components/documentos-list";
-import { Skeleton } from "@/components/ui/skeleton";
-import { Button } from "@/components/ui/button";
+import { PageTitle, Button, Skeleton } from "@/components";
 import { getCategories } from "./actions";
 import { Suspense } from "react";
 import Link from "next/link";
@@ -13,26 +12,10 @@ export default async function RulesPage() {
 
     return (
         <div className="flex flex-col w-full">
-            {/* Hero Section */}
-            <section className="relative w-full bg-gradient-to-br from-gray-800 via-gray-900 to-black overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
-                    <div className="code-animation"></div>
-                </div>
-                <div className="mx-auto px-4 md:px-8 lg:px-12 py-12 md:py-16 relative z-10">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                            Documentos
-                        </h1>
-                        <p className="text-xl md:text-2xl text-gray-200 mb-8">
-                            Acesse os documentos oficiais das maratonas de
-                            programação da ETEC Abdias e FATEC.
-                        </p>
-                    </div>
-                </div>
-            </section>
+            <PageTitle title="Documentos" />
 
             {/* Rules Tabs Section */}
-            <section className="py-16 bg-white">
+            <section className="pb-16 bg-white">
                 <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <div className="max-w-4xl mx-auto">
                         <Tabs defaultValue="general" className="w-full">
