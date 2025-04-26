@@ -53,24 +53,6 @@ export default async function EventoAnteriorPage({ params }: {
         ? [...evento.vencedores].sort((a: any, b: any) => a.posicao - b.posicao)
         : [];
 
-    const renderDescricao = () => {
-        if (!evento.descricao) return { __html: "" };
-
-        const html = evento.descricao
-            .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-            .replace(/\*(.*?)\*/g, "<em>$1</em>")
-            .replace(/<u>(.*?)<\/u>/g, "<u>$1</u>")
-            .replace(/\[(.*?)\]$$(.*?)$$/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">$1</a>')
-            .replace(/!\[(.*?)\]$$(.*?)$$/g, '<img src="$2" alt="$1" class="max-w-full rounded-md my-4" />')
-            .replace(/^- (.*)/gm, "<li>$1</li>")
-            .replace(/^(\d+)\. (.*)/gm, "<li>$2</li>")
-            .replace(/<li>(.*)<\/li>/g, '<ul class="list-disc pl-6 my-2"><li>$1</li></ul>')
-            .replace(/<\/ul><ul class="list-disc pl-6 my-2">/g, "")
-            .replace(/<div style="text-align: (.*?)">([\s\S]*?)<\/div>/g, '<div style="text-align: $1">$2</div>')
-            .replace(/\n/g, "<br />");
-        return { __html: html };
-    };
-
     return (
         <div className="flex flex-col w-full">
             {/* Hero Section */}
@@ -95,10 +77,10 @@ export default async function EventoAnteriorPage({ params }: {
                 <section className="py-12 bg-white">
                     <div className="mx-auto px-4 md:px-8 lg:px-16">
                         <div className="max-w-6xl mx-auto">
-                            <div
-                                className="prose max-w-none text-justify"
-                                dangerouslySetInnerHTML={renderDescricao()}
-                            />
+                        <div
+                            className="prose max-w-none text-justify ql-editor"
+                            dangerouslySetInnerHTML={{ __html: evento.descricao }}
+                        />
                         </div>
                     </div>
                 </section>

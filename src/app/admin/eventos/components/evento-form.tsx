@@ -1,7 +1,7 @@
 "use client";
 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Switch, Button, Input, Label, Editor, Card, CardContent, useToast } from "@/components"
+import { Switch, Button, Input, Label, Card, CardContent, useToast, QuillEditor } from "@/components"
 import { createEvento, updateEvento } from "../actions";
 import type { Evento } from "@/utils/types/types";
 import { useRouter } from "next/navigation";
@@ -17,20 +17,13 @@ export function EventoForm({ evento }: EventoFormProps) {
     const router = useRouter();
     const { toast } = useToast();
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [previewUrl, setPreviewUrl] = useState<string | null>(
-        evento?.imagem_url || null
-    );
-
-    const [inscricaoExterna, setInscricaoExterna] = useState<boolean>(
-        evento?.inscricao_externa || false
-    );
-
+    const [previewUrl, setPreviewUrl] = useState<string | null>(evento?.imagem_url || null);
+    const [inscricaoExterna, setInscricaoExterna] = useState<boolean>(evento?.inscricao_externa || false);
     const [descricao, setDescricao] = useState<string>(evento?.descricao || "");
 
     const handleSubmit = async (formData: FormData) => {
         setIsSubmitting(true);
 
-        // Adicionar a descrição do editor
         formData.set("descricao", descricao);
 
         try {
@@ -43,9 +36,7 @@ export function EventoForm({ evento }: EventoFormProps) {
             setIsSubmitting(false);
             toast({
                 title: "Erro",
-                description: error instanceof Error
-                    ? error.message
-                    : "Ocorreu um erro ao salvar o evento",
+                description: error instanceof Error ? error.message : "Ocorreu um erro ao salvar o evento",
                 variant: "destructive",
             });
         }
@@ -239,10 +230,11 @@ export function EventoForm({ evento }: EventoFormProps) {
 
             <div className="space-y-2">
                 <Label htmlFor="descricao">Descrição</Label>
-                <Editor
+                <QuillEditor
                     value={descricao}
                     onChange={setDescricao}
                     disabled={isSubmitting}
+                    placeholder="Digite a descrição do evento aqui..."
                 />
             </div>
 

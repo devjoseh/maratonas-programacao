@@ -62,8 +62,7 @@ export function Footer() {
 
                 <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
                     <p>
-                        &copy; {new Date().getFullYear()} Maratona de
-                        Programação ETEC & FATEC. Todos os direitos reservados.
+                        &copy; {new Date().getFullYear()} Hackas EF. Todos os direitos reservados.
                     </p>
                 </div>
             </div>

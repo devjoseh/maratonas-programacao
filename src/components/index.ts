@@ -1,7 +1,7 @@
 // SECTIONS
-export * from "./sections/editor";
 export * from "./sections/footer";
 export * from "./sections/header";
+export * from "./sections/quill-editor";
 
 // UI
 export * from "./ui/accordion";

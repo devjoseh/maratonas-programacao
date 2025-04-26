@@ -150,13 +150,11 @@ export default async function Home() {
             <section className="py-16 bg-gray-50">
                 <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <h2 className="text-3xl font-bold text-center mb-4">
-                        Organizadores e Patrocinadores
+                        Organizadores
                     </h2>
                     <p className="text-gray-600 text-center max-w-3xl mx-auto mb-12">
-                        As maratonas de programação são organizadas em conjunto
-                        pela ETEC Abdias do Nascimento e FATEC, instituições de
-                        ensino comprometidas com a excelência na formação
-                        tecnológica.
+                        As maratonas de programação são organizadas na  ETEC Abdias do Nascimento 
+                        e FATEC Zona Sul
                     </p>
 
                     <div className="flex flex-col md:flex-row justify-center items-center gap-12">

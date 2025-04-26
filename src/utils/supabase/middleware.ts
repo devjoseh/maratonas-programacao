@@ -1,12 +1,12 @@
-import { type NextRequest, NextResponse } from "next/server";
 import { createServerClient } from "@supabase/ssr";
+import { type NextRequest, NextResponse } from "next/server";
 
 export const updateSession = async (request: NextRequest) => {
     try {
-        console.log(request.nextUrl.pathname)
-        
         let response = NextResponse.next({
-            request: { headers: request.headers },
+            request: {
+                headers: request.headers,
+            },
         });
 
         const supabase = createServerClient(
@@ -14,14 +14,16 @@ export const updateSession = async (request: NextRequest) => {
             process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
             {
                 cookies: {
-                    getAll: () => request.cookies.getAll(),
-                    setAll: (cookiesToSet) => {
+                    getAll() {
+                        return request.cookies.getAll();
+                    },
+                    setAll(cookiesToSet) {
                         cookiesToSet.forEach(({ name, value }) =>
                             request.cookies.set(name, value)
                         );
-
-                        response = NextResponse.next({ request });
-
+                        response = NextResponse.next({
+                            request,
+                        });
                         cookiesToSet.forEach(({ name, value, options }) =>
                             response.cookies.set(name, value, options)
                         );
@@ -33,10 +35,7 @@ export const updateSession = async (request: NextRequest) => {
         const user = await supabase.auth.getUser();
 
         // Lista de rotas protegidas
-        const protectedRoutes = [
-            "/admin",
-            "/sign-up"
-        ];
+        const protectedRoutes = ["/admin", "/sign-up"];
 
         // Verifica se a rota atual requer autenticação
         const isProtectedRoute = protectedRoutes.some((route) =>
@@ -54,7 +53,11 @@ export const updateSession = async (request: NextRequest) => {
         }
 
         return response;
-    } catch {
-        return NextResponse.next({ request: { headers: request.headers } });
+    } catch (e) {
+        return NextResponse.next({
+            request: {
+                headers: request.headers,
+            },
+        });
     }
 };
