@@ -153,19 +153,20 @@ export default async function Home() {
                         Organizadores
                     </h2>
                     <p className="text-gray-600 text-center max-w-3xl mx-auto mb-12">
-                        As maratonas de programação são organizadas na  ETEC Abdias do Nascimento 
-                        e FATEC Zona Sul
+                    As maratonas de programação são organizadas na ETEC Abdias do Nascimento e FATEC Zona Sul. Com foco no desenvolvimento 
+                    de habilidades práticas, pensamento lógico e trabalho colaborativo, as maratonas preparam os participantes para os desafios 
+                    do mercado de trabalho e incentivam a inovação tecnológica desde a formação acadêmica.
                     </p>
 
                     <div className="flex flex-col md:flex-row justify-center items-center gap-12">
-                        <div className="flex flex-col items-center">
-                            <div className="w-48 h-48 relative mb-4">
+                        <div className="flex flex-col items-center w-full md:w-96">
+                            <div className="w-full h-64 relative mb-4 overflow-hidden rounded-lg">
                                 <Image
-                                    src="/placeholder.svg?height=192&width=192"
-                                    alt="Logo ETEC Abdias do Nascimento"
-                                    width={192}
-                                    height={192}
-                                    className="object-contain"
+                                    src="/banners/etecabdias.jpg"
+                                    alt="ETEC Abdias do Nascimento"
+                                    width={480}
+                                    height={320}
+                                    className="w-full h-full object-cover"
                                 />
                             </div>
                             <h3 className="text-xl font-bold">
@@ -173,38 +174,36 @@ export default async function Home() {
                             </h3>
                         </div>
 
-                        <div className="flex flex-col items-center">
-                            <div className="w-48 h-48 relative mb-4">
+                        <div className="flex flex-col items-center w-full md:w-96">
+                            <div className="w-full h-64 relative mb-4 overflow-hidden rounded-lg">
                                 <Image
-                                    src="/placeholder.svg?height=192&width=192"
-                                    alt="Logo FATEC"
-                                    width={192}
-                                    height={192}
-                                    className="object-contain"
+                                    src="/banners/fateczs.jpg"
+                                    alt="Logo FATEC Zona Sul Dom Paulo Evaristo Arns"
+                                    width={480}
+                                    height={320}
+                                    className="w-full h-full object-cover"
                                 />
                             </div>
-                            <h3 className="text-xl font-bold">FATEC</h3>
+                            <h3 className="text-xl font-bold">FATEC Zona Sul</h3>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Schools Information Section */}
-            <section className="py-16 bg-white">
+            {/* <section className="py-16 bg-white">
                 <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <h2 className="text-3xl font-bold text-center mb-12">
                         Nossas Instituições
                     </h2>
 
-                    {/* ETEC Information */}
                     <div className="flex flex-col md:flex-row items-center gap-8 mb-16">
-                        <div className="w-full md:w-1/2 rounded-lg overflow-hidden">
+                        <div className="w-full md:w-1/2 rounded-lg overflow-hidden h-[380px]">
                             <Image
-                                src="/placeholder.svg?height=400&width=600"
+                                src="/banners/etecabdias.jpg"
                                 alt="ETEC Abdias do Nascimento"
-                                width={600}
-                                height={400}
-                                className="w-full h-auto object-cover rounded-lg"
+                                width={680}
+                                height={380}
+                                className="w-full h-full object-cover rounded-lg"
                             />
                         </div>
                         <div className="w-full md:w-1/2">
@@ -221,9 +220,9 @@ export default async function Home() {
                                 pela excelência acadêmica e infraestrutura
                                 moderna.
                             </p>
-                            <Button asChild variant="outline">
+                            <Button asChild variant="destructive">
                                 <Link
-                                    href="https://www.etecabdias.com.br"
+                                    href="https://www.cps.sp.gov.br/etecs/etec-abdias-do-nascimento-paraisopolis/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -233,19 +232,18 @@ export default async function Home() {
                         </div>
                     </div>
 
-                    {/* FATEC Information */}
                     <div className="flex flex-col md:flex-row-reverse items-center gap-8">
-                        <div className="w-full md:w-1/2 rounded-lg overflow-hidden">
+                        <div className="w-full md:w-1/2 rounded-lg overflow-hidden h-[380px]">
                             <Image
-                                src="/placeholder.svg?height=400&width=600"
-                                alt="FATEC"
-                                width={600}
-                                height={400}
-                                className="w-full h-auto object-cover rounded-lg"
+                                src="/banners/fateczs.jpg"
+                                alt="FATEC Zona Sul"
+                                width={680}
+                                height={380}
+                                className="w-full h-full object-cover rounded-lg"
                             />
                         </div>
                         <div className="w-full md:w-1/2">
-                            <h3 className="text-2xl font-bold mb-4">FATEC</h3>
+                            <h3 className="text-2xl font-bold mb-4">FATEC Zona Sul</h3>
                             <p className="text-gray-700 mb-6">
                                 A FATEC (Faculdade de Tecnologia do Estado de
                                 São Paulo) é uma instituição de ensino superior
@@ -256,9 +254,9 @@ export default async function Home() {
                                 trabalho e investe constantemente em inovação e
                                 pesquisa.
                             </p>
-                            <Button asChild variant="outline">
+                            <Button asChild variant="destructive">
                                 <Link
-                                    href="https://www.fatec.sp.gov.br"
+                                    href="https://www.cps.sp.gov.br/fatecs/fatec-zona-sul-dom-paulo-evaristo-arns/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -268,10 +266,10 @@ export default async function Home() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* Programming Practice Section */}
-            <section className="py-12 bg-gray-900 text-white">
+            {/* <section className="py-12 bg-gray-900 text-white">
                 <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <div className="max-w-3xl mx-auto text-center">
                         <CodeIcon className="w-12 h-12 mx-auto mb-4 text-red-500" />
@@ -297,7 +295,7 @@ export default async function Home() {
                         </Button>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* School Events Access Section */}
             <section className="py-16 bg-white">
@@ -328,10 +326,10 @@ export default async function Home() {
                             <div className="w-24 h-24 mx-auto mb-6 bg-red-700 rounded-full flex items-center justify-center">
                                 <BookOpenIcon className="w-12 h-12 text-white" />
                             </div>
-                            <h3 className="text-2xl font-bold mb-4">FATEC</h3>
+                            <h3 className="text-2xl font-bold mb-4">FATEC Zona Sul</h3>
                             <p className="text-gray-700 mb-6">
                                 Acesse informações específicas sobre as
-                                maratonas de programação realizadas na FATEC.
+                                maratonas de programação realizadas na FATEC Zona Sul.
                             </p>
                             <Button asChild variant="destructive">
                                 <Link href="/eventos/fatec">Ver eventos</Link>

@@ -67,12 +67,12 @@ export function LoadingSpinner({ size = "md", className, text }: LoadingSpinnerP
         <div className={cn("flex flex-col items-center justify-center py-8", className)}>
             <div
                 className={cn(
-                    "animate-spin rounded-full border-t-transparent border-blue-500",
+                    "animate-spin rounded-full border-t-transparent border-black",
                     sizeClasses[size]
                 )}
             />
 
-            {text && <p className="mt-4 text-blue-300 text-sm">{text}</p>}
+            {text && <p className="mt-4 text-black text-sm">{text}</p>}
         </div>
     );
 }

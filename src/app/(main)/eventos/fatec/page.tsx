@@ -1,141 +1,37 @@
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Button, EventScheduleCard } from "@/components";
+import { CodeIcon } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from "@/components/ui/accordion";
-import { CodeIcon, ExternalLink } from "lucide-react";
-import { getEventsByName } from "../../actions";
-import { CountdownTimer } from "@/components";
 
-export default async function FATECEventPage() {
-    const event = await getEventsByName("FATEC");
-    const upcomingEvent = (event || []).sort(
-        (a, b) =>
-            new Date(a.data_inicio).getTime() -
-            new Date(b.data_inicio).getTime()
-    );
-
+export default function FATECEventPage() {
     return (
         <div className="flex flex-col w-full">
             {/* Hero Section */}
-            <section className="relative w-full bg-gradient-to-br from-red-700 via-red-800 to-red-900 overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
-                    <div className="code-animation"></div>
+            <section className="relative w-full h-[400px] overflow-hidden">
+                <div className="absolute inset-0">
+                    <Image
+                        src="/banners/fateczs.jpg" 
+                        alt="Fatec Zona Sul – Dom Paulo Evaristo Arns"
+                        fill
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black opacity-50"></div>
                 </div>
-                <div className="mx-auto px-4 md:px-8 lg:px-16 py-12 md:py-16 relative z-10">
+                
+                <div className="mx-auto px-4 md:px-8 lg:px-16 py-12 md:py-16 relative z-10 h-full flex items-center">
                     <div className="max-w-4xl mx-auto text-center">
                         <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                            Maratona de Programação FATEC
+                            Fatec Zona Sul – Dom Paulo Evaristo Arns
                         </h1>
-                        <p className="text-xl md:text-2xl text-gray-100 mb-8">
-                            FATEC
+                        <p className="text-xl md:text-2xl text-white mb-8">
+                            Maratona de Programação
                         </p>
                     </div>
                 </div>
             </section>
 
-            <section className="py-16 bg-white">
-                <div className="mx-auto px-4 md:px-8 lg:px-16">
-                    <h2 className="text-3xl font-bold text-center mb-12">
-                        Próximos Eventos
-                    </h2>
-                    {upcomingEvent.length > 0 ? (
-                        <div
-                            className={`grid grid-cols-1 md:grid-cols-1 gap-8`}
-                        >
-                            {upcomingEvent.map((event) => (
-                                <div
-                                    key={event.id}
-                                    className={`bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200 transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl ${
-                                        upcomingEvent.length === 1
-                                            ? "md:max-w-[50%] md:mx-auto"
-                                            : ""
-                                    }`}
-                                >
-                                    <div
-                                        className={`h-2 ${
-                                            event.instituicao === "ETEC Abdias"
-                                                ? "bg-red-600"
-                                                : "bg-red-700"
-                                        }`}
-                                    ></div>
-                                    <div className="p-6">
-                                        <h3 className="text-2xl font-bold mb-2">
-                                            {event.titulo}
-                                        </h3>
-                                        <p className="text-gray-700 font-medium mb-4">
-                                            {event.instituicao}
-                                        </p>
-                                        <p className="text-gray-600 mb-6">
-                                            {new Date(
-                                                event.data_inicio
-                                            ).toLocaleDateString("pt-BR", {
-                                                day: "2-digit",
-                                                month: "long",
-                                                year: "numeric",
-                                            })}
-                                        </p>
-                                        <div className="mb-6">
-                                            <CountdownTimer
-                                                targetDate={event.data_inicio}
-                                            />
-                                        </div>
-                                        {event.inscricao_externa ? (
-                                            <Button
-                                                asChild
-                                                className="w-full"
-                                                variant="destructive"
-                                            >
-                                                <a
-                                                    href={
-                                                        event.url_inscricao_externa ||
-                                                        "#"
-                                                    }
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                >
-                                                    Inscrever-se{" "}
-                                                    <ExternalLink className="ml-2 h-4 w-4" />
-                                                </a>
-                                            </Button>
-                                        ) : (
-                                            <Button
-                                                asChild
-                                                className="w-full"
-                                                variant="destructive"
-                                            >
-                                                <Link
-                                                    href={`/inscricao/${event.id}`}
-                                                >
-                                                    Inscrever-se
-                                                </Link>
-                                            </Button>
-                                        )}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    ) : (
-                        <div className="text-center p-8 bg-gray-50 rounded-lg">
-                            <h3 className="text-2xl font-bold mb-4">
-                                Nenhum evento programado no momento
-                            </h3>
-                            <p className="text-gray-600 mb-6">
-                                Fique atento às nossas redes sociais para
-                                informações sobre os próximos eventos.
-                            </p>
-                            <Button asChild variant="outline">
-                                <Link href="/edicoes">
-                                    Ver edições anteriores
-                                </Link>
-                            </Button>
-                        </div>
-                    )}
-                </div>
-            </section>
+            <EventScheduleCard school="FATEC" />
 
             {/* Event Stages Section */}
             <section className="py-16 bg-white">

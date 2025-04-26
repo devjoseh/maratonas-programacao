@@ -7,7 +7,7 @@ import "react-quill-new/dist/quill.snow.css";
 
 const ReactQuill = dynamic(() => import("react-quill-new"), {
     ssr: false,
-    // loading: () => <Skeleton className="w-full h-[300px]" />,
+    loading: () => <Skeleton className="w-full h-[300px]" />,
 });
 
 interface QuillEditorProps {

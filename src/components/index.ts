@@ -2,6 +2,7 @@
 export * from "./sections/footer";
 export * from "./sections/header";
 export * from "./sections/quill-editor";
+export * from "./sections/upcomingEvent";
 
 // UI
 export * from "./ui/accordion";
