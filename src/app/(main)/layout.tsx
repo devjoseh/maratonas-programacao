@@ -1,4 +1,4 @@
-import { Header, Footer } from "@/components/index";
+import { Header, Footer, BreadcrumbNav } from "@/components/index";
 
 export default function MainLayout({
     children,
@@ -8,6 +8,7 @@ export default function MainLayout({
     return (
         <>
             <Header />
+            <BreadcrumbNav />
             {children}
             <Footer />
         </>

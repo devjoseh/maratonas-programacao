@@ -28,6 +28,16 @@ export default function ObjectivesPage() {
                 </div>
             </section>
 
+            {/* <section className="py-8">
+                <div className="mx-auto px-4 md:px-8 lg:px-16">
+                    <div className="max-w-4xl mx-auto">
+                        <h2 className="text-3xl font-bold">
+                            Objetivos
+                        </h2>
+                    </div>
+                </div>
+            </section> */}
+
             {/* Main Objectives Section */}
             <section className="py-16 bg-white">
                 <div className="mx-auto px-4 md:px-8 lg:px-16">

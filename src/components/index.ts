@@ -1,4 +1,5 @@
 // SECTIONS
+export * from "./sections/breadcrumb-nav";
 export * from "./sections/footer";
 export * from "./sections/header";
 export * from "./sections/quill-editor";
@@ -10,6 +11,7 @@ export * from "./ui/alert-dialog";
 export * from "./ui/alert";
 export * from "./ui/avatar";
 export * from "./ui/badge";
+export * from "./ui/breadcrumb";
 export * from "./ui/button";
 export * from "./ui/card";
 export * from "./ui/command";

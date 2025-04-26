@@ -1,3 +1,4 @@
+import { InscricaoBreadcrumb } from "./components/breadcrumb";
 import { InscricaoForm } from "./components/inscricao-form";
 import { notFound } from "next/navigation";
 import { getEventById } from "./actions";
@@ -48,6 +49,7 @@ export default async function InscricaoPage({ params }: {
             <section className="py-16 bg-white">
                 <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <div className="max-w-3xl mx-auto">
+                        <InscricaoBreadcrumb evento={evento} />
                         {inscricoesAbertas ? (
                             <>
                                 <div className="mb-8 p-4 bg-green-50 border border-green-200 rounded-lg text-center">
