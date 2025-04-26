@@ -18,7 +18,7 @@ export default function ContactPage() {
                             {/* ETEC Contact Information */}
                             <div className="bg-white p-8 rounded-lg shadow-lg border border-gray-100">
                                 <div className="flex items-center mb-6">
-                                    <div className="w-16 h-16 relative mr-4">
+                                    {/* <div className="w-16 h-16 relative mr-4">
                                         <Image
                                             src="/placeholder.svg?height=64&width=64"
                                             alt="Logo ETEC Abdias do Nascimento"
@@ -26,7 +26,7 @@ export default function ContactPage() {
                                             height={64}
                                             className="object-contain"
                                         />
-                                    </div>
+                                    </div> */}
                                     <h3 className="text-2xl font-bold">
                                         ETEC Abdias do Nascimento
                                     </h3>
@@ -40,12 +40,9 @@ export default function ContactPage() {
                                                 Endereço
                                             </h4>
                                             <p className="text-gray-600">
-                                                Rua Doutor Nuno Guerner de
-                                                Almeida, 54
+                                                Rua Dr. José Augusto de Souza de Silva, s/nº - Jardim Parque Morumbi (Paraisópolis) 
                                                 <br />
-                                                Jardim São João (Zona Leste)
-                                                <br />
-                                                São Paulo - SP, 03918-090
+                                                05712-040 - São Paulo/SP
                                             </p>
                                         </div>
                                     </div>
@@ -57,7 +54,7 @@ export default function ContactPage() {
                                                 Telefone
                                             </h4>
                                             <p className="text-gray-600">
-                                                (11) 2546-0756
+                                                (11) 3507-7491
                                             </p>
                                         </div>
                                     </div>
@@ -66,10 +63,46 @@ export default function ContactPage() {
                                         <Mail className="w-6 h-6 text-red-600 mr-4 mt-1" />
                                         <div>
                                             <h4 className="text-lg font-semibold mb-1">
-                                                E-mail
+                                                E-mails
                                             </h4>
                                             <p className="text-gray-600">
-                                                e254dir@cps.sp.gov.br
+                                                Diretoria: {" "}
+                                                <Link 
+                                                    key="e224dir@cps.sp.gov.br"
+                                                    href="mailto:e224dir@cps.sp.gov.br"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    aria-label="e224dir@cps.sp.gov.br"
+                                                    className="text-red-600 hover:underline"
+                                                >
+                                                    e224dir@cps.sp.gov.br
+                                                </Link>
+                                            </p>
+                                            <p className="text-gray-600">
+                                                Diretoria Administrativa: {" "}
+                                                <Link 
+                                                    key="e224adm@cps.sp.gov.br"
+                                                    href="mailto:e224adm@cps.sp.gov.br"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    aria-label="e224adm@cps.sp.gov.br"
+                                                    className="text-red-600 hover:underline"
+                                                >
+                                                    e224adm@cps.sp.gov.br
+                                                </Link>
+                                            </p>
+                                            <p className="text-gray-600">
+                                                Diretoria Acadêmica: {" "}
+                                                <Link 
+                                                    key="e224acad@cps.sp.gov.br"
+                                                    href="mailto:e224acad@cps.sp.gov.br"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    aria-label="e224acad@cps.sp.gov.br"
+                                                    className="text-red-600 hover:underline"
+                                                >
+                                                    e224acad@cps.sp.gov.br
+                                                </Link>
                                             </p>
                                         </div>
                                     </div>
@@ -81,17 +114,17 @@ export default function ContactPage() {
                                                 Website
                                             </h4>
                                             <Link
-                                                href="https://www.etecabdias.com.br"
+                                                href="https://etecabdiasnascimento.cps.sp.gov.br/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="text-red-600 hover:underline"
                                             >
-                                                www.etecabdias.com.br
+                                                www.etecabdiasnascimento.cps.sp.gov.br
                                             </Link>
                                         </div>
                                     </div>
 
-                                    <div className="flex items-start">
+                                    {/* <div className="flex items-start">
                                         <Clock className="w-6 h-6 text-red-600 mr-4 mt-1" />
                                         <div>
                                             <h4 className="text-lg font-semibold mb-1">
@@ -110,13 +143,13 @@ export default function ContactPage() {
                                                 </li>
                                             </ul>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
 
                                 <div className="mt-8">
                                     <Button asChild className="w-full">
                                         <Link
-                                            href="https://www.google.com/maps?q=ETEC+Abdias+do+Nascimento"
+                                            href="https://maps.app.goo.gl/koSQYcRDB5m8wwhL6"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
@@ -129,7 +162,7 @@ export default function ContactPage() {
                             {/* FATEC Contact Information */}
                             <div className="bg-white p-8 rounded-lg shadow-lg border border-gray-100">
                                 <div className="flex items-center mb-6">
-                                    <div className="w-16 h-16 relative mr-4">
+                                    {/* <div className="w-16 h-16 relative mr-4">
                                         <Image
                                             src="/placeholder.svg?height=64&width=64"
                                             alt="Logo FATEC"
@@ -137,9 +170,9 @@ export default function ContactPage() {
                                             height={64}
                                             className="object-contain"
                                         />
-                                    </div>
+                                    </div> */}
                                     <h3 className="text-2xl font-bold">
-                                        FATEC São Paulo
+                                        FATEC Zona Sul – Dom Paulo Evaristo Arns
                                     </h3>
                                 </div>
 
@@ -151,11 +184,9 @@ export default function ContactPage() {
                                                 Endereço
                                             </h4>
                                             <p className="text-gray-600">
-                                                Av. Tiradentes, 615
-                                                <br />
-                                                Bom Retiro
-                                                <br />
-                                                São Paulo - SP, 01101-010
+                                                Rua Frederico Grotte, 322 - Jardim São Luiz 
+                                                <br/>
+                                                CEP: 05818-270 - São Paulo/SP
                                             </p>
                                         </div>
                                     </div>
@@ -167,7 +198,7 @@ export default function ContactPage() {
                                                 Telefone
                                             </h4>
                                             <p className="text-gray-600">
-                                                (11) 3322-2200
+                                                (11) 5851-5829 / 5851-8949
                                             </p>
                                         </div>
                                     </div>
@@ -176,10 +207,46 @@ export default function ContactPage() {
                                         <Mail className="w-6 h-6 text-red-700 mr-4 mt-1" />
                                         <div>
                                             <h4 className="text-lg font-semibold mb-1">
-                                                E-mail
+                                                E-mails
                                             </h4>
                                             <p className="text-gray-600">
-                                                f001dir@cps.sp.gov.br
+                                                Diretoria: {" "}
+                                                <Link 
+                                                    key="f137dir@cps.sp.gov.br"
+                                                    href="mailto:f137dir@cps.sp.gov.br"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    aria-label="f137dir@cps.sp.gov.br"
+                                                    className="text-red-700 hover:underline"
+                                                >
+                                                    f137dir@cps.sp.gov.br
+                                                </Link>
+                                            </p>
+                                            <p className="text-gray-600">
+                                                Diretoria Administrativa: {" "}
+                                                <Link 
+                                                    key="f137adm@cps.sp.gov.br"
+                                                    href="mailto:f137adm@cps.sp.gov.br"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    aria-label="f137adm@cps.sp.gov.br"
+                                                    className="text-red-700 hover:underline"
+                                                >
+                                                    f137adm@cps.sp.gov.br
+                                                </Link>
+                                            </p>
+                                            <p className="text-gray-600">
+                                                Diretoria Acadêmica: {" "}
+                                                <Link 
+                                                    key="f137acad@cps.sp.gov.br"
+                                                    href="mailto:f137acad@cps.sp.gov.br"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    aria-label="f137acad@cps.sp.gov.br"
+                                                    className="text-red-700 hover:underline"
+                                                >
+                                                    f137acad@cps.sp.gov.br
+                                                </Link>
                                             </p>
                                         </div>
                                     </div>
@@ -191,17 +258,17 @@ export default function ContactPage() {
                                                 Website
                                             </h4>
                                             <Link
-                                                href="https://www.fatecsp.br"
+                                                href="https://fateczonasul.edu.br/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="text-red-700 hover:underline"
                                             >
-                                                www.fatecsp.br
+                                                www.fateczonasul.edu.br
                                             </Link>
                                         </div>
                                     </div>
 
-                                    <div className="flex items-start">
+                                    {/* <div className="flex items-start">
                                         <Clock className="w-6 h-6 text-red-700 mr-4 mt-1" />
                                         <div>
                                             <h4 className="text-lg font-semibold mb-1">
@@ -220,13 +287,13 @@ export default function ContactPage() {
                                                 </li>
                                             </ul>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
 
                                 <div className="mt-8">
                                     <Button asChild className="w-full">
                                         <Link
-                                            href="https://www.google.com/maps?q=FATEC+São+Paulo"
+                                            href="https://maps.app.goo.gl/6LwPQ79q9aUpuhTJ9"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
@@ -238,7 +305,7 @@ export default function ContactPage() {
                         </div>
 
                         {/* Maratona de Programação Contact */}
-                        <div className="mt-12 p-8 bg-gray-50 rounded-lg border border-gray-100 max-w-3xl mx-auto">
+                        {/* <div className="mt-12 p-8 bg-gray-50 rounded-lg border border-gray-100 max-w-3xl mx-auto">
                             <h3 className="text-2xl font-bold mb-6 text-center">
                                 Contato da Organização da Maratona
                             </h3>
@@ -274,7 +341,7 @@ export default function ContactPage() {
                                     com a equipe organizadora.
                                 </p>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </section>

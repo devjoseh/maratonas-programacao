@@ -16,7 +16,7 @@ export default function NotFound() {
                 </h1>
 
                 <p className="mt-4 text-lg text-gray-600">
-                    Ops! A página que você procura não existe ou foi removida. Que tal voltar ao início e continuar explorando meu portfolio?
+                    Ops! A página que você procura não existe ou foi removida. Que tal voltar ao início e continuar explorando?
                 </p>
 
                 <div className="mt-8">

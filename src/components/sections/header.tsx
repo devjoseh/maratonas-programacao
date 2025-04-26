@@ -40,7 +40,7 @@ export function Header() {
                                     className="object-contain"
                                 />
                             </div>
-                            <span className="font-bold text-xl hidden sm:inline-block">
+                            <span className="font-bold text-xl sm:inline-block">
                                 Hackas EF
                             </span>
                         </Link>
@@ -64,9 +64,7 @@ export function Header() {
                                     variant="link"
                                     className={cn(
                                         "text-sm font-medium p-0 h-auto transition-colors hover:text-red-600",
-                                        isActive("/sobre")
-                                            ? "text-red-600"
-                                            : "text-gray-700"
+                                        isActive("/sobre") ? "text-red-600" : "text-gray-700"
                                     )}
                                 >
                                     Sobre o Evento{" "}
@@ -108,14 +106,44 @@ export function Header() {
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button
+                                    variant="link"
+                                    className={cn(
+                                        "text-sm font-medium p-0 h-auto transition-colors hover:text-red-600",
+                                        isActive("/eventos") ? "text-red-600" : "text-gray-700"
+                                    )}
+                                >
+                                    Instituições{" "}
+                                    <ChevronDown className="ml-1 h-4 w-4" />
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end">
+                                <DropdownMenuItem asChild>
+                                    <Link
+                                        href="/eventos/etec"
+                                        className="w-full"
+                                    >
+                                        ETEC Abdias
+                                    </Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link
+                                        href="/eventos/fatec"
+                                        className="w-full"
+                                    >
+                                        FATEC Zona Sul
+                                    </Link>
+                                </DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
 
                         <Link
                             href="/edicoes"
                             className={cn(
                                 "text-sm font-medium transition-colors hover:text-red-600",
-                                isActive("/edicoes")
-                                    ? "text-red-600"
-                                    : "text-gray-700"
+                                isActive("/edicoes") ? "text-red-600" : "text-gray-700"
                             )}
                         >
                             Edições Anteriores
@@ -125,9 +153,7 @@ export function Header() {
                             href="/contato"
                             className={cn(
                                 "text-sm font-medium transition-colors hover:text-red-600",
-                                isActive("/contato")
-                                    ? "text-red-600"
-                                    : "text-gray-700"
+                                isActive("/contato") ? "text-red-600" : "text-gray-700"
                             )}
                         >
                             Contato
@@ -170,9 +196,7 @@ export function Header() {
                             <div
                                 className={cn(
                                     "text-base font-medium mb-2",
-                                    isActive("/sobre")
-                                        ? "text-red-600"
-                                        : "text-gray-700"
+                                    isActive("/sobre") ? "text-red-600" : "text-gray-700"
                                 )}
                             >
                                 Sobre o Evento
@@ -202,13 +226,38 @@ export function Header() {
                             </div>
                         </div>
 
+                        <div className="py-2">
+                            <div
+                                className={cn(
+                                    "text-base font-medium mb-2",
+                                    isActive("/eventos") ? "text-red-600" : "text-gray-700"
+                                )}
+                            >
+                                Instituições
+                            </div>
+                            <div className="pl-4 space-y-2">
+                                <Link
+                                    href="/eventos/etec"
+                                    className="block py-1 text-sm text-gray-600 hover:text-red-600"
+                                    onClick={closeMenu}
+                                >
+                                    ETEC Abdias
+                                </Link>
+                                <Link
+                                    href="/eventos/fatec"
+                                    className="block py-1 text-sm text-gray-600 hover:text-red-600"
+                                    onClick={closeMenu}
+                                >
+                                    FATEC Zona Sul
+                                </Link>
+                            </div>
+                        </div>
+
                         <Link
                             href="/edicoes"
                             className={cn(
                                 "block py-2 text-base font-medium transition-colors hover:text-red-600",
-                                isActive("/edicoes")
-                                    ? "text-red-600"
-                                    : "text-gray-700"
+                                isActive("/edicoes") ? "text-red-600" : "text-gray-700"
                             )}
                             onClick={closeMenu}
                         >
@@ -219,9 +268,7 @@ export function Header() {
                             href="/contato"
                             className={cn(
                                 "block py-2 text-base font-medium transition-colors hover:text-red-600",
-                                isActive("/contato")
-                                    ? "text-red-600"
-                                    : "text-gray-700"
+                                isActive("/contato") ? "text-red-600" : "text-gray-700"
                             )}
                             onClick={closeMenu}
                         >
