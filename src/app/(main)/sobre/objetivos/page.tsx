@@ -14,8 +14,8 @@ export default function ObjectivesPage() {
                             Propósito das Maratonas de Programação
                         </h2>
                         <p className="text-lg text-gray-700 mb-6">
-                            As maratonas de programação organizadas pela ETEC
-                            Abdias do Nascimento e FATEC têm como objetivo
+                            As maratonas de programação organizadas na ETEC
+                            Abdias do Nascimento e FATEC Zona Sul têm como objetivo
                             principal promover a prática da programação, o
                             desenvolvimento do raciocínio lógico e o trabalho em
                             equipe entre os estudantes.
@@ -144,27 +144,7 @@ export default function ObjectivesPage() {
                                         um diferencial no currículo, sendo
                                         valorizado por empresas de tecnologia
                                         que buscam profissionais com habilidades
-                                        avançadas de resolução de problemas e
-                                        programação.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start">
-                                <div className="flex-shrink-0 w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white mr-4">
-                                    <UsersIcon className="w-6 h-6" />
-                                </div>
-                                <div>
-                                    <h3 className="text-xl font-bold mb-2">
-                                        Networking
-                                    </h3>
-                                    <p className="text-gray-700">
-                                        As competições proporcionam
-                                        oportunidades de networking com outros
-                                        estudantes, professores e profissionais
-                                        da área, ampliando a rede de contatos e
-                                        possibilitando trocas de experiências
-                                        valiosas.
+                                        de resolução de problemas e programação.
                                     </p>
                                 </div>
                             </div>
@@ -188,7 +168,7 @@ export default function ObjectivesPage() {
                             </div>
                         </div>
 
-                        <div className="mt-12 p-6 bg-white rounded-lg border border-gray-200">
+                        {/* <div className="mt-12 p-6 bg-white rounded-lg border border-gray-200">
                             <h3 className="text-xl font-bold mb-4 text-center">
                                 Impacto na Formação Acadêmica
                             </h3>
@@ -200,7 +180,7 @@ export default function ObjectivesPage() {
                                 comportamentais essenciais para o sucesso
                                 profissional na área de tecnologia.
                             </p>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </section>

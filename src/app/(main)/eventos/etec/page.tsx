@@ -86,7 +86,8 @@ export default function ETECEventPage() {
                                         </h3>
                                         <p className="text-gray-600">
                                             Todas as inscrições são realizadas
-                                            através da plataforma Even3. Fique
+                                            através de um formulário da Even3 ou do próprio 
+                                            site das maratonas. Fique
                                             atento aos prazos de inscrição.
                                         </p>
                                     </div>
@@ -171,9 +172,7 @@ export default function ETECEventPage() {
                                     Como posso me preparar?
                                 </AccordionTrigger>
                                 <AccordionContent>
-                                    Além da leitura de materiais, existem sites
-                                    com problemas de edições anteriores da
-                                    InterFatecs e de outras maratonas. Acesse a
+                                    Acesse a
                                     seção{" "}
                                     <Link
                                         href="/sobre/como-se-preparar"
@@ -191,8 +190,7 @@ export default function ETECEventPage() {
                                     utilizar?
                                 </AccordionTrigger>
                                 <AccordionContent>
-                                    Assim como na maratona brasileira, as
-                                    equipes podem enviar suas soluções em C,
+                                    Asequipes podem enviar suas soluções em C,
                                     C++, Java, JavaScript ou Python.
                                 </AccordionContent>
                             </AccordionItem>
@@ -203,37 +201,12 @@ export default function ETECEventPage() {
                                 </AccordionTrigger>
                                 <AccordionContent>
                                     Todas as inscrições dos eventos são
-                                    realizados pelo Even3. Quando as inscrições
-                                    estiverem abertas, o link será
-                                    disponibilizado neste site.
+                                    realizados pelo Even3 ou aqui na própria plataforma. 
+                                    Quando as inscrições estiverem abertas, 
+                                    o link será disponibilizado neste site.
                                 </AccordionContent>
                             </AccordionItem>
                         </Accordion>
-                    </div>
-                </div>
-            </section>
-
-            {/* Programming Practice Section */}
-            <section className="py-12 bg-gray-900 text-white">
-                <div className="mx-auto px-4 md:px-8 lg:px-16">
-                    <div className="max-w-3xl mx-auto text-center">
-                        <CodeIcon className="w-12 h-12 mx-auto mb-4 text-red-500" />
-                        <h2 className="text-2xl font-bold mb-4">
-                            A prática diária é o caminho para a excelência
-                        </h2>
-                        <p className="text-gray-300 mb-6">
-                            O aprimoramento da lógica de programação e a
-                            capacidade de resolver problemas complexos são
-                            habilidades desenvolvidas através da prática
-                            constante. Participar de maratonas de programação é
-                            uma excelente forma de acelerar esse
-                            desenvolvimento.
-                        </p>
-                        <Button asChild variant="destructive">
-                            <Link href="/sobre/como-se-preparar">
-                                Saiba mais
-                            </Link>
-                        </Button>
                     </div>
                 </div>
             </section>

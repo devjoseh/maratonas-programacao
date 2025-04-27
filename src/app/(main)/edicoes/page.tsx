@@ -23,7 +23,7 @@ export default async function PreviousEditions() {
                         </h1>
                         <p className="text-xl md:text-2xl text-gray-200 mb-8">
                             Conheça o histórico das maratonas de programação
-                            realizadas pela ETEC Abdias do Nascimento e FATEC
+                            realizadas pela ETEC Abdias do Nascimento e FATEC Zona Sul
                         </p>
                     </div>
                 </div>
@@ -76,7 +76,7 @@ export default async function PreviousEditions() {
             <section id="fatec" className="py-16 bg-gray-50">
                 <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <h2 className="text-3xl font-bold text-center mb-12">
-                        FATEC
+                        FATEC Zona Sul
                     </h2>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">

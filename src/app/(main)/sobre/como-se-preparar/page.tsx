@@ -45,7 +45,7 @@ export default function PreparationPage() {
                         Recursos para Estudo
                     </h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
                         {/* Online Judges */}
                         <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
                             <div className="h-2 bg-red-600"></div>
@@ -71,12 +71,22 @@ export default function PreparationPage() {
                                     </li>
                                     <li>
                                         <a
-                                            href="https://www.hackerrank.com"
+                                            href="https://edabit.com/"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="text-red-600 hover:underline"
                                         >
-                                            HackerRank
+                                            Edabit
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="https://www.codewars.com/"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-red-600 hover:underline"
+                                        >
+                                            Codewars
                                         </a>
                                     </li>
                                     <li>
@@ -89,12 +99,23 @@ export default function PreparationPage() {
                                             LeetCode
                                         </a>
                                     </li>
+                                    <li>
+                                        <a
+                                            href="https://www.hackerrank.com"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-red-600 hover:underline"
+                                        >
+                                            HackerRank
+                                        </a>
+                                    </li>
+
                                 </ul>
                             </div>
                         </div>
 
                         {/* Books */}
-                        <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                        {/* <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
                             <div className="h-2 bg-red-600"></div>
                             <div className="p-6">
                                 <BookIcon className="w-12 h-12 text-red-600 mb-4" />
@@ -125,7 +146,7 @@ export default function PreparationPage() {
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> */}
 
                         {/* Previous Competitions */}
                         <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
@@ -145,12 +166,22 @@ export default function PreparationPage() {
                                             href="/edicoes"
                                             className="text-red-600 hover:underline"
                                         >
-                                            Edições anteriores da ETEC e FATEC
+                                            Edições anteriores
                                         </Link>
                                     </li>
                                     <li>
                                         <a
-                                            href="https://maratona.sbc.org.br/antigas.html"
+                                            href="https://www.robotica.cpscetec.com.br/atividades.php?pag=5"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-red-600 hover:underline"
+                                        >
+                                            Maratona de Programação Robótica Centro Paula Souza
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="https://maratona.sbc.org.br/hist/index.html"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="text-red-600 hover:underline"
@@ -160,7 +191,7 @@ export default function PreparationPage() {
                                     </li>
                                     <li>
                                         <a
-                                            href="https://icpc.global/worldfinals/problems"
+                                            href="https://icpc.global/worldfinals/past-problems"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="text-red-600 hover:underline"
@@ -218,21 +249,6 @@ export default function PreparationPage() {
                                 <span className="flex items-center justify-center w-8 h-8 bg-red-600 text-white rounded-full mr-3">
                                     3
                                 </span>
-                                Simule competições
-                            </h3>
-                            <p className="text-gray-700">
-                                Pratique com seu time em condições semelhantes
-                                às da competição: limite de tempo, sem consulta
-                                a materiais externos (exceto os permitidos na
-                                competição) e com pressão de tempo.
-                            </p>
-                        </div>
-
-                        <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                            <h3 className="text-xl font-bold mb-4 flex items-center">
-                                <span className="flex items-center justify-center w-8 h-8 bg-red-600 text-white rounded-full mr-3">
-                                    4
-                                </span>
                                 Aprenda com os erros
                             </h3>
                             <p className="text-gray-700">
@@ -245,7 +261,7 @@ export default function PreparationPage() {
                         <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
                             <h3 className="text-xl font-bold mb-4 flex items-center">
                                 <span className="flex items-center justify-center w-8 h-8 bg-red-600 text-white rounded-full mr-3">
-                                    5
+                                    4
                                 </span>
                                 Trabalhe em equipe
                             </h3>
@@ -255,47 +271,6 @@ export default function PreparationPage() {
                                 habilidades de cada um. A comunicação eficiente
                                 é essencial durante a competição.
                             </p>
-                        </div>
-
-                        <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                            <h3 className="text-xl font-bold mb-4 flex items-center">
-                                <span className="flex items-center justify-center w-8 h-8 bg-red-600 text-white rounded-full mr-3">
-                                    6
-                                </span>
-                                Crie uma biblioteca de código
-                            </h3>
-                            <p className="text-gray-700">
-                                Mantenha uma coleção de implementações de
-                                algoritmos e estruturas de dados comuns que você
-                                possa adaptar rapidamente durante as
-                                competições.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Call to Action */}
-            <section className="py-12 bg-gray-900 text-white">
-                <div className="mx-auto px-4 md:px-8 lg:px-16">
-                    <div className="max-w-3xl mx-auto text-center">
-                        <CodeIcon className="w-12 h-12 mx-auto mb-4 text-red-500" />
-                        <h2 className="text-2xl font-bold mb-4">
-                            Pronto para o desafio?
-                        </h2>
-                        <p className="text-gray-300 mb-6">
-                            Aplique essas dicas, pratique regularmente e
-                            participe da próxima maratona de programação. O
-                            aprendizado contínuo e a experiência adquirida serão
-                            valiosos para sua carreira em tecnologia.
-                        </p>
-                        <div className="flex flex-col sm:flex-row justify-center gap-4">
-                            <Button asChild variant="destructive">
-                                <Link href="/">Ver próximos eventos</Link>
-                            </Button>
-                            <Button asChild variant="secondary">
-                                <Link href="/edicoes">Edições anteriores</Link>
-                            </Button>
                         </div>
                     </div>
                 </div>

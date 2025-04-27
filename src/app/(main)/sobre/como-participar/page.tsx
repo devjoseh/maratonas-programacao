@@ -33,9 +33,7 @@ export default function HowToParticipatePage() {
                                         <p className="text-gray-600">
                                             Reúna uma equipe de 3 alunos
                                             titulares e, opcionalmente, 1 aluno
-                                            reserva. Escolha colegas com
-                                            habilidades complementares para
-                                            maximizar as chances de sucesso.
+                                            reserva.
                                         </p>
                                     </div>
                                 </div>
@@ -57,16 +55,14 @@ export default function HowToParticipatePage() {
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-bold mb-2">
-                                            Verifique os Requisitos
+                                            Faça a inscrição.
                                         </h3>
                                         <p className="text-gray-600">
-                                            Certifique-se de que todos os
-                                            membros da equipe atendem aos
-                                            requisitos de elegibilidade, como
-                                            estar regularmente matriculado na
-                                            instituição e não ter excedido o
-                                            limite de participações em edições
-                                            anteriores.
+                                            Realize a inscrição da equipe
+                                            através da plataforma Even3 dentro
+                                            do prazo estabelecido. Fique atento
+                                            às datas de abertura e encerramento
+                                            das inscrições.
                                         </p>
                                     </div>
                                 </div>
@@ -80,14 +76,15 @@ export default function HowToParticipatePage() {
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-bold mb-2">
-                                            Faça a Inscrição
+                                            Prepare-se
                                         </h3>
                                         <p className="text-gray-600">
-                                            Realize a inscrição da equipe
-                                            através da plataforma Even3 dentro
-                                            do prazo estabelecido. Fique atento
-                                            às datas de abertura e encerramento
-                                            das inscrições.
+                                            Estude e pratique com sua equipe.
+                                            Resolva problemas de edições
+                                            anteriores, familiarize-se com as
+                                            linguagens de programação permitidas
+                                            e desenvolva estratégias de trabalho
+                                            em equipe.
                                         </p>
                                     </div>
                                 </div>
@@ -109,43 +106,16 @@ export default function HowToParticipatePage() {
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-bold mb-2">
-                                            Prepare-se
-                                        </h3>
-                                        <p className="text-gray-600">
-                                            Estude e pratique com sua equipe.
-                                            Resolva problemas de edições
-                                            anteriores, familiarize-se com as
-                                            linguagens de programação permitidas
-                                            e desenvolva estratégias de trabalho
-                                            em equipe.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Step 5 */}
-                            <div className="relative flex flex-col md:flex-row items-start">
-                                <div className="flex items-center md:w-1/2 md:pr-8 md:text-right">
-                                    <div className="md:hidden flex-shrink-0 w-8 h-8 rounded-full bg-red-600 flex items-center justify-center text-white font-bold mr-4">
-                                        5
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold mb-2">
                                             Participe da Competição
                                         </h3>
                                         <p className="text-gray-600">
                                             No dia do evento, compareça com
-                                            antecedência ao local da competição,
-                                            com documento de identificação. Siga
+                                            antecedência ao local da competição. Siga
                                             as instruções dos organizadores e
-                                            divirta-se resolvendo os problemas!
+                                            divirta-se!
                                         </p>
                                     </div>
                                 </div>
-                                <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 -translate-y-1/4 w-8 h-8 rounded-full bg-red-600 items-center justify-center text-white font-bold">
-                                    5
-                                </div>
-                                <div className="md:w-1/2 md:pl-8 md:mt-0 mt-4 ml-8 md:ml-0"></div>
                             </div>
                         </div>
                     </div>
@@ -153,7 +123,7 @@ export default function HowToParticipatePage() {
             </section>
 
             {/* Institution Specific Information */}
-            <section className="py-16 bg-gray-50">
+            {/* <section className="py-16 bg-gray-50">
                 <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <div className="max-w-4xl mx-auto">
                         <h2 className="text-3xl font-bold mb-8 text-center">
@@ -163,12 +133,11 @@ export default function HowToParticipatePage() {
                         <Tabs defaultValue="etec" className="w-full">
                             <TabsList className="grid w-full grid-cols-2 mb-8">
                                 <TabsTrigger value="etec">
-                                    ETEC Abdias do Nascimento
+                                    ETEC Abdias
                                 </TabsTrigger>
                                 <TabsTrigger value="fatec">FATEC</TabsTrigger>
                             </TabsList>
 
-                            {/* ETEC Information */}
                             <TabsContent value="etec">
                                 <Card>
                                     <CardContent className="py-6">
@@ -256,7 +225,6 @@ export default function HowToParticipatePage() {
                                 </Card>
                             </TabsContent>
 
-                            {/* FATEC Information */}
                             <TabsContent value="fatec">
                                 <Card>
                                     <CardContent className="py-6">
@@ -275,9 +243,7 @@ export default function HowToParticipatePage() {
                                                     Podem participar alunos
                                                     regularmente matriculados
                                                     nos cursos de graduação da
-                                                    FATEC, com limite de
-                                                    participação de até 3
-                                                    maratonas por aluno.
+                                                    FATEC
                                                 </p>
                                             </div>
 
@@ -348,10 +314,10 @@ export default function HowToParticipatePage() {
                         </Tabs>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* Tips Section */}
-            <section className="py-16 bg-white">
+            <section className="py-16 bg-gray-50">
                 <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <div className="max-w-4xl mx-auto">
                         <h2 className="text-3xl font-bold mb-8 text-center">
@@ -359,7 +325,7 @@ export default function HowToParticipatePage() {
                         </h2>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                            <div className="bg-white p-6 rounded-lg border border-gray-200">
                                 <div className="flex items-center mb-4">
                                     <CheckCircleIcon className="w-6 h-6 text-red-600 mr-2" />
                                     <h3 className="text-lg font-bold">
@@ -399,8 +365,8 @@ export default function HowToParticipatePage() {
                                             •
                                         </span>
                                         <span>
-                                            Crie uma biblioteca de algoritmos e
-                                            estruturas de dados comuns
+                                            Evite noites mal dormidas 
+                                            nos dias anteriores à maratona.
                                         </span>
                                     </li>
                                     <li className="flex items-start">
@@ -408,14 +374,13 @@ export default function HowToParticipatePage() {
                                             •
                                         </span>
                                         <span>
-                                            Estude os problemas das edições
-                                            anteriores para entender o padrão
+                                        Controle o estresse: calma evita decisões erradas.
                                         </span>
                                     </li>
                                 </ul>
                             </div>
 
-                            <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                            <div className="bg-white p-6 rounded-lg border border-gray-200">
                                 <div className="flex items-center mb-4">
                                     <CheckCircleIcon className="w-6 h-6 text-red-600 mr-2" />
                                     <h3 className="text-lg font-bold">
@@ -472,7 +437,7 @@ export default function HowToParticipatePage() {
                             </div>
                         </div>
 
-                        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+                        <div className="mt-8 p-6 bg-white rounded-lg border border-gray-200">
                             <h3 className="text-lg font-bold mb-4 text-center">
                                 Recursos Adicionais
                             </h3>
@@ -488,25 +453,6 @@ export default function HowToParticipatePage() {
                                 </Button>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Call to Action */}
-            <section className="py-12 bg-gray-900 text-white">
-                <div className="mx-auto px-4 md:px-8 lg:px-16">
-                    <div className="max-w-3xl mx-auto text-center">
-                        <h2 className="text-2xl font-bold mb-4">
-                            Pronto para o Desafio?
-                        </h2>
-                        <p className="text-gray-300 mb-6">
-                            Forme sua equipe, prepare-se e participe da próxima
-                            edição da Maratona de Programação. Desafie suas
-                            habilidades e mostre seu potencial!
-                        </p>
-                        <Button asChild size="lg" variant="destructive">
-                            <Link href="/">Ver Próximos Eventos</Link>
-                        </Button>
                     </div>
                 </div>
             </section>

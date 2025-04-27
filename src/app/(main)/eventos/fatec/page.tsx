@@ -39,13 +39,14 @@ export default function FATECEventPage() {
                     <h2 className="text-3xl font-bold text-center mb-12">
                         Etapas do Evento
                     </h2>
-
-                    <div className="max-w-4xl mx-auto">
+                    <h3 className="text-2xl text-center mb-12">
+                        Sem Informações
+                    </h3>
+                    
+                    {/* <div className="max-w-4xl mx-auto">
                         <div className="relative">
-                            {/* Timeline Line */}
                             <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-gray-200"></div>
 
-                            {/* Stage 1 */}
                             <div className="relative flex flex-col md:flex-row items-start mb-12">
                                 <div className="flex items-center md:w-1/2 md:pr-8 md:text-right">
                                     <div className="md:hidden flex-shrink-0 w-8 h-8 rounded-full bg-red-700 flex items-center justify-center text-white font-bold mr-4">
@@ -70,7 +71,6 @@ export default function FATECEventPage() {
                                 <div className="md:w-1/2 md:pl-8 md:mt-0 mt-4 ml-8 md:ml-0"></div>
                             </div>
 
-                            {/* Stage 2 */}
                             <div className="relative flex flex-col md:flex-row items-start mb-12">
                                 <div className="md:w-1/2 md:pr-8 md:text-right md:block hidden"></div>
                                 <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 -translate-y-1/4 w-8 h-8 rounded-full bg-red-700 items-center justify-center text-white font-bold">
@@ -93,7 +93,6 @@ export default function FATECEventPage() {
                                 </div>
                             </div>
 
-                            {/* Stage 3 */}
                             <div className="relative flex flex-col md:flex-row items-start mb-12">
                                 <div className="flex items-center md:w-1/2 md:pr-8 md:text-right">
                                     <div className="md:hidden flex-shrink-0 w-8 h-8 rounded-full bg-red-700 flex items-center justify-center text-white font-bold mr-4">
@@ -117,7 +116,6 @@ export default function FATECEventPage() {
                                 <div className="md:w-1/2 md:pl-8 md:mt-0 mt-4 ml-8 md:ml-0"></div>
                             </div>
 
-                            {/* Stage 4 */}
                             <div className="relative flex flex-col md:flex-row items-start">
                                 <div className="md:w-1/2 md:pr-8 md:text-right md:block hidden"></div>
                                 <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 -translate-y-1/4 w-8 h-8 rounded-full bg-red-700 items-center justify-center text-white font-bold">
@@ -141,7 +139,7 @@ export default function FATECEventPage() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </section>
 
@@ -171,10 +169,7 @@ export default function FATECEventPage() {
                                     Como posso me preparar?
                                 </AccordionTrigger>
                                 <AccordionContent>
-                                    Além da leitura de materiais, existem sites
-                                    com problemas de edições anteriores da
-                                    InterFatecs e de outras maratonas. Acesse a
-                                    seção{" "}
+                                    Acesse a seção{" "}
                                     <Link
                                         href="/sobre/como-se-preparar"
                                         className="text-red-700 hover:underline"
@@ -191,9 +186,8 @@ export default function FATECEventPage() {
                                     utilizar?
                                 </AccordionTrigger>
                                 <AccordionContent>
-                                    Assim como na maratona brasileira, as
-                                    equipes podem enviar suas soluções em C,
-                                    C++, Java ou Python.
+                                    As equipes podem enviar suas
+                                    soluções em C, C++, Java ou Python.
                                 </AccordionContent>
                             </AccordionItem>
 
@@ -202,10 +196,8 @@ export default function FATECEventPage() {
                                     Como podemos fazer a inscrição?
                                 </AccordionTrigger>
                                 <AccordionContent>
-                                    Todas as inscrições dos eventos são
-                                    realizados pelo Even3. Quando as inscrições
-                                    estiverem abertas, o link será
-                                    disponibilizado neste site.
+                                    Quando as inscrições estiverem abertas, 
+                                    o link será disponibilizado neste site.
                                 </AccordionContent>
                             </AccordionItem>
                         </Accordion>

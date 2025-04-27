@@ -8,7 +8,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "HACKAS EF | ETEC & FATEC",
+    title: "HACKAS EF | Maratonas de Programação",
     description: "Maratonas de programação da ETEC Abdias do Nascimento e FATEC",
 };
 
