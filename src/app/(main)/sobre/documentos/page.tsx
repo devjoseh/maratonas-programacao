@@ -18,10 +18,10 @@ export default async function RulesPage() {
             <section className="pb-16 bg-white">
                 <div className="mx-auto px-4 md:px-8 lg:px-16">
                     <div className="max-w-4xl mx-auto">
-                        <Tabs defaultValue="general" className="w-full">
+                        <Tabs defaultValue="etec" className="w-full">
                             <TabsList className="grid w-full grid-cols-2 mb-8">
-                                <TabsTrigger value="etec">ETEC</TabsTrigger>
-                                <TabsTrigger value="fatec">FATEC</TabsTrigger>
+                                <TabsTrigger value="etec">ETEC Abdias</TabsTrigger>
+                                <TabsTrigger value="fatec">FATEC Zona Sul</TabsTrigger>
                             </TabsList>
 
                             {/* ETEC */}
