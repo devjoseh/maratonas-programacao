@@ -22,8 +22,8 @@ export default async function PreviousEditions() {
                             Edições Anteriores
                         </h1>
                         <p className="text-xl md:text-2xl text-gray-200 mb-8">
-                            Conheça o histórico das maratonas de programação
-                            realizadas pela ETEC Abdias do Nascimento e FATEC Zona Sul
+                            Histórico das maratonas de programação
+                            realizadas na ETEC Abdias do Nascimento e FATEC Zona Sul
                         </p>
                     </div>
                 </div>

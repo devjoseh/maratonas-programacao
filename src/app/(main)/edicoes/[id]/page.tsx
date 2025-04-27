@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { getEventbyId, getEventTeams } from "../actions";
 import { Button } from "@/components/ui/button";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 
 export default async function EventoAnteriorPage({ params }: { 
@@ -56,18 +57,27 @@ export default async function EventoAnteriorPage({ params }: {
     return (
         <div className="flex flex-col w-full">
             {/* Hero Section */}
-            <section className="relative w-full bg-gradient-to-br from-red-600 via-red-700 to-red-800 overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
-                    <div className="code-animation"></div>
+            <section className="relative w-full h-[400px] overflow-hidden">
+                <div className="absolute inset-0">
+                    <Image
+                        src={evento.instituicao === "ETEC Abdias" 
+                            ? "/banners/etecabdias.jpg" 
+                            : "/banners/fateczs.jpg"} 
+                        alt="ETEC Abdias do Nascimento"
+                        fill
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black opacity-50"></div>
                 </div>
-                <div className="mx-auto px-4 md:px-8 lg:px-16 py-12 md:py-16 relative z-10">
+                
+                <div className="mx-auto px-4 md:px-8 lg:px-16 py-12 md:py-16 relative z-10 h-full flex items-center">
                     <div className="max-w-4xl mx-auto text-center">
-                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-                            {evento.titulo}
+                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+                        {evento.titulo}
                         </h1>
-                        <h2 className="text-2xl md:text-3xl font-semibold text-white mb-8">
+                        <p className="text-xl md:text-2xl text-white mb-8">
                             {evento.instituicao} - {evento.ano}
-                        </h2>
+                        </p>
                     </div>
                 </div>
             </section>
